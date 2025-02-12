@@ -1,0 +1,18 @@
+.car-preview {
+    text-align: center;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-preview :is(h2, h4) {
+    text-transform: capitalize;
+    color: black;
+    margin-block: 0.4rem;
+}
+
+.car-preview img {
+    margin-top: 1.5rem;
+    max-width: 100px;
+}
