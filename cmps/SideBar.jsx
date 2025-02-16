@@ -1,4 +1,6 @@
 const { Link, NavLink, useNavigate } = ReactRouterDOM;
+import { UserProfile } from "./UserProfile.jsx"
+
 
 export function SideBar() {
     const navigate = useNavigate();
@@ -9,17 +11,7 @@ export function SideBar() {
 
     return (
         <section className="side-bar">
-
-            <div className="profile">
-                <div className="profile-picture">
-                    <img src="assets/img/profile.png" alt="Icon"/>
-                </div>
-                <div className="profile-name">
-                    <p>Bar</p>
-                    <p>Human Resource</p>
-                </div>
-            </div>
-
+            <UserProfile/>
             <nav className="side-bar-nav">
                 <NavLink to="/home">Profile</NavLink> 
                 <NavLink to="/jobs">Jobs</NavLink> 
