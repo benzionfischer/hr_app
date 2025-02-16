@@ -1,0 +1,54 @@
+.company-logo {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Ensures the parent itself is circular */
+    overflow: hidden; /* Prevents image from overflowing */
+    border: 3px solid black;
+}
+
+
+.company-logo img {
+    border-radius: 50%;  /* Make it circular */
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+}
+
+.company-logo-edit {
+    position: relative;
+    top: 20px;
+    left: 230px;
+    width: 50px;  /* Adjust width as needed */
+    height: 50px;  /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;  /* Makes it circular */
+    overflow: hidden;  /* Ensures image stays within the circle */
+    background-color: rgb(228, 177, 144); /* Optional: Background color */
+}
+
+.company-logo-edit img {
+    width: 60%;  /* Scales down the image */
+    height: 60%;  /* Keeps aspect ratio */
+    object-fit: contain; /* Ensures full visibility of the icon */
+}
+
+.company-rectangle-position {
+    margin-top: 6rem;
+    margin-left: 4rem;
+    border: 2px solid black;
+    width: 200px;
+    padding: 1rem;
+}
+
+.company-rectangle-description {
+    margin-top: 4rem;
+    margin-left: 4rem;
+    border: 2px solid black;
+    width: 500px;
+    padding: 1rem;
+}

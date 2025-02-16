@@ -1,0 +1,13 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    display: flex; /* Enables flexbox */
+    flex-direction: row; /* Arranges children horizontally */
+    min-height: 100vh; /* Ensures it spans the full viewport height */
+    width: 100%; /* Ensures it spans the full width */
+}

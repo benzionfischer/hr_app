@@ -6,7 +6,7 @@ export function Home() {
     return (
         <section className="home">
             <h1 >Car's R Us!</h1>
-            <img src="../assets/img/react.png" alt="hero-image" />
+            {/* <img src="../assets/img/react.png" alt="hero-image" /> */}
             <Accordion title="Machine Learning">
                 Machine learning is a subset of artificial
                 intelligence that focuses on building systems that learn from data,

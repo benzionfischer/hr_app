@@ -1,0 +1,80 @@
+.side-bar {
+    background-color: rgba(227, 124, 73, 0.927);
+    width: 30%;  /* Sidebar width */
+    padding: 0;  /* Remove padding from the sidebar to avoid overflow */
+}
+
+nav {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 2px;  /* Space between links */
+    width: 100%;  /* Make the nav take the full width of the sidebar */
+}
+
+nav a {
+    display: flex;  /* Use flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #000000;  /* Default border color */
+    background-color: #ff8c00;
+    font-weight: bold;
+    transition: border-width 0.1s ease;
+    width: 100%;  /* Ensure the link takes the full width of the nav */
+    box-sizing: border-box;  /* Include padding and borders in the width calculation */
+}
+
+nav a:not(:last-child) {
+    border-bottom: 1px solid #000000;  /* Default border for non-last items */
+}
+
+/* On hover, make borders bolder on all sides */
+nav a:hover {
+    border-width: 3px;  /* Makes the border wider on all sides */
+    border-color: #000000;  /* Ensures border color stays the same when hovered */
+}
+
+
+.profile {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-picture {
+    position: relative;  /* Position relative to its container */
+    top: 10px;  /* Adjust vertical position */
+    left: 18%;  /* Center the circle horizontally */
+    width: 60px;  /* Diameter of the circle */
+    height: 60px;  /* Diameter of the circle */
+    border-radius: 50%;  /* Make it circular */
+    background-color: #ff8c00;  /* Circle color */
+    margin-bottom: 20px;  /* Space between the circle and the header */
+    transform: translateX(-50%);  /* Center the circle */
+    display: flex;  /* Use flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    overflow: hidden;  /* Hide any overflowing content */
+}
+
+.profile-picture img {
+    width: 100%;  /* Fill the circle */
+    height: 100%;  /* Fill the circle */
+    object-fit: cover;  /* Ensure the image covers the area without distortion */
+    border-radius: 50%;  /* Make sure the image is also circular */
+}
+
+
+.profile-name {
+    position: relative;  /* Position relative to its container */
+    display:flex;
+    flex-direction: column;
+    gap: 0px;
+    top: 5px;  /* Adjust vertical position */
+    left: 9%;  /* Center the circle horizontally */
+}
+
+.profile-name p {
+    margin: 10px 0 0 0; /* Reduce the space even further */
+}
