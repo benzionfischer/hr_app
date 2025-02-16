@@ -1,23 +1,41 @@
+import { companyService } from "../services/company.service.js"
+const { useEffect, useState } = React
 
 export function Company() {
+
+    const [company, setCompany] = useState(null)
+
+    useEffect(() => {
+        loadCompany()
+    }, [])
+
+    function loadCompany() {
+        let demoCompanyId = 1
+        companyService.get(demoCompanyId)
+            .then(setCompany)
+            .catch(err => {
+                console.log('Problems getting company:', err)
+            })
+    }
+
+    if (!company) return <p>Loading company data...</p>;
+
     return (
         <section className="company"> 
             <div className="company-logo">
-                <img src="assets/img/meta.png" alt="Icon"/>
+                <img src={company.icon} alt="Icon"/>
             </div>
             <div className="company-logo-edit">
                 <img src="assets/img/edit.png" alt="Icon"/>
             </div>
             <div className="company-rectangle-position">
                 <img src="assets/img/location.png" alt="Icon"/>
-                Israel, Tel Aviv
+                {company.location}
             </div>
             <div className="company-rectangle-description">
                 <img src="assets/img/company_description.png" alt="Icon"/> 
-                <strong>Meta</strong>
-                <div>Meta is a leading integrator of IT security solutions in the world
-                Meta owns a wide knowledge base, professional personnel
-                technologies and products for computer networks....</div>
+                <strong>{company.name}</strong>
+                <div>{company.description}</div>
             </div>
         </section>
     );
