@@ -18,6 +18,10 @@ export function Company() {
             })
     }
 
+    function handleEditClick() {
+        console.log("edit...")
+    }
+
     if (!company) return <p>Loading company data...</p>;
 
     return (
@@ -26,7 +30,9 @@ export function Company() {
                 <img src={company.icon} alt="Icon"/>
             </div>
             <div className="company-logo-edit">
-                <img src="assets/img/edit.png" alt="Icon"/>
+                <button className="company-logo-edit-btn" onClick={handleEditClick}>
+                    <img src="assets/img/edit.png" alt="Icon"/>
+                </button>
             </div>
             <div className="company-rectangle-position">
                 <img src="assets/img/location.png" alt="Icon"/>

@@ -52,3 +52,15 @@
     width: 500px;
     padding: 1rem;
 }
+
+.company-logo-edit-btn {
+    width: 100%;  /* Scales down the image */
+    height: 100%;  /* Keeps aspect ratio */
+    background: none; /* Removes default button styling */
+    border: none; /* Removes default border */
+    padding: 0;
+    cursor: pointer; /* Makes it clear it's clickable */
+    display: flex; /* Ensures alignment */
+    align-items: center;
+    justify-content: center;
+}
