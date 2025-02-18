@@ -43,8 +43,8 @@ function save(job) {
     }
 }
 
-function getEmptyJob(title = '') {
-    return { title }
+function getEmptyJob(title = '', description = ' ') {
+    return { title, description }
 }
 
 function getDefaultFilter() {
@@ -59,33 +59,21 @@ function getFilterFromSrcParams(srcParams) {
     }
 }
 
-
-// function _setNextPrevCarId(car) {
-//     return query().then((cars) => {
-//         const carIdx = cars.findIndex((currCar) => currCar.id === car.id)
-//         const nextCar = cars[carIdx + 1] ? cars[carIdx + 1] : cars[0]
-//         const prevCar = cars[carIdx - 1] ? cars[carIdx - 1] : cars[cars.length - 1]
-//         car.nextCarId = nextCar.id
-//         car.prevCarId = prevCar.id
-//         return car
-//     })
-// }
-
 function _createJobs() {
     let jobs = loadFromStorage(JOB_KEY)
     if (!jobs || !jobs.length) {
         jobs = [
-            _createJob('Python Developer'),
-            _createJob('Product Manager'),
-            _createJob('CEO'),
-            _createJob('CTO')
+            _createJob('Software Engineer', "Full-Stack developer" ),
+            _createJob('Product Manager', "Security & Cyber"),
+            _createJob('Data Analyst', "Full-Stack developer"),
+            _createJob('Software Engineer', "C# and JavaScript")
         ]
         saveToStorage(JOB_KEY, jobs)
     }
 }
 
-function _createJob(title) {
-    const job = getEmptyJob(title)
+function _createJob(title, description) {
+    const job = getEmptyJob(title, description)
     job.id = makeId()
     return job
 }

@@ -1,0 +1,7 @@
+.job-preview {
+    display: flex;  /* Use flexbox */
+    flex-direction: column; /* Arrange items in a column (top to bottom) */
+    padding-left: 1%;
+    padding-bottom: 1%;
+    border: 2px solid #000000;  /* Default border color */
+}

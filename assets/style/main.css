@@ -21,6 +21,11 @@
 @import "cmps/side-bar.css";
 @import "cmps/page.css";
 @import "cmps/company.css";
+@import "cmps/job-index.css";
+@import "cmps/job-filter.css";
+@import "cmps/job-preview.css";
+
+
 
 
 /* @import "cmps/app-footer.css";

@@ -45,7 +45,7 @@ export function JobIndex() {
 
     // if (!cars) return <div>Loading...</div>
     return (
-        <section className="car-index">
+        <section className="job-index">
             <JobFilter defaultFilter={filterBy} onSetFilter={onSetFilter} />
 
             {/* <section>

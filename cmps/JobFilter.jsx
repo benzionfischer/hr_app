@@ -29,12 +29,12 @@ export function JobFilter({ defaultFilter, onSetFilter }) {
     }
 
 
-    const { txt, minSpeed } = filterByToEdit
+    const { txt } = filterByToEdit
     return (
-        <section className="car-filter">
+        <section className="job-filter">
             <form >
-                <label htmlFor="txt">Vendor</label>
-                <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" />
+                <label htmlFor="txt"></label>
+                <input className="job-filter-search-box" value={txt} onChange={handleChange} type="text" name="txt" id="txt" placeholder="🔍 Search..."/>
             </form>
         </section>
     )
