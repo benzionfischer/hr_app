@@ -7,7 +7,7 @@ import { UserMsg } from "./cmps/UserMsg.jsx"
 import { About } from "./pages/About.jsx"
 import { CarDetails } from "./pages/CarDetails.jsx"
 import { CarEdit } from "./pages/CarEdit.jsx"
-import { CarIndex } from "./pages/CarIndex.jsx"
+import { JobIndex } from "./pages/JobIndex.jsx"
 import { Company } from "./pages/Company.jsx"
 
 const Router = ReactRouterDOM.HashRouter
@@ -28,7 +28,7 @@ export function App() {
                             <Route path="/about/team" element={<Team />} />
                             <Route path="/about/vision" element={<Vision />} />
                         </Route>
-                        <Route path="/car" element={<CarIndex />} />
+                        <Route path="/job" element={<JobIndex />} />
                         <Route path="/car/:carId" element={<CarDetails />} />
                         <Route path="/car/edit" element={<CarEdit />} />
                         <Route path="/car/edit/:carId" element={<CarEdit />} />

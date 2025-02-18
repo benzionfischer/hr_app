@@ -14,7 +14,7 @@ export function SideBar() {
             <UserProfile/>
             <nav className="side-bar-nav">
                 <NavLink to="/home">Profile</NavLink> 
-                <NavLink to="/jobs">Jobs</NavLink> 
+                <NavLink to="/job">Jobs</NavLink> 
                 <NavLink to="/discover">Discover</NavLink>
                 <NavLink to="/candidates">Candidates</NavLink>
             </nav>

@@ -1,10 +1,10 @@
 
-import { carService } from "../services/car.service.js"
+import { jobService } from "../services/job.service.js"
 import { debounce } from "../services/util.service.js"
 
 const { useState, useEffect, useRef } = React
 
-export function CarFilter({ defaultFilter, onSetFilter }) {
+export function JobFilter({ defaultFilter, onSetFilter }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState(defaultFilter)
     // const onSetFilterDebounce = debounce(onSetFilter)
@@ -32,14 +32,9 @@ export function CarFilter({ defaultFilter, onSetFilter }) {
     const { txt, minSpeed } = filterByToEdit
     return (
         <section className="car-filter">
-            <h2>Filter Our Cars</h2>
             <form >
                 <label htmlFor="txt">Vendor</label>
                 <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" />
-
-                <label htmlFor="minSpeed">Min Speed</label>
-                <input value={minSpeed || ''} onChange={handleChange} type="number" name="minSpeed" id="minSpeed" />
-
             </form>
         </section>
     )
