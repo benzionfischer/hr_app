@@ -11,7 +11,8 @@
 }
 
 .job-index-header-tabs {
+    width: 21%;
     display: flex;
     flex-direction: row;
-    gap: 2%;
+    gap: 7%;
 }
