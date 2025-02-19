@@ -5,7 +5,7 @@ import { SideBar } from "./cmps/SideBar.jsx"
 import { NotFound } from "./cmps/NotFound.jsx"
 import { UserMsg } from "./cmps/UserMsg.jsx"
 import { About } from "./pages/About.jsx"
-import { CarDetails } from "./pages/CarDetails.jsx"
+import { JobDetails } from "./pages/JobDetails.jsx"
 import { CarEdit } from "./pages/CarEdit.jsx"
 import { JobIndex } from "./pages/JobIndex.jsx"
 import { Company } from "./pages/Company.jsx"
@@ -29,7 +29,7 @@ export function App() {
                             <Route path="/about/vision" element={<Vision />} />
                         </Route>
                         <Route path="/job" element={<JobIndex />} />
-                        <Route path="/car/:carId" element={<CarDetails />} />
+                        <Route path="/job/:jobId" element={<JobDetails />} />
                         <Route path="/car/edit" element={<CarEdit />} />
                         <Route path="/car/edit/:carId" element={<CarEdit />} />
                         <Route path="*" element={<NotFound />} />

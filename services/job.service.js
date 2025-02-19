@@ -27,7 +27,7 @@ function query(filterBy = {}) {
 
 function get(jobId) {
     return storageService.get(JOB_KEY, jobId)
-        .then(_setNextPrevCarId)
+        // .then(_setNextPrevCarId)
 }
 
 function remove(jobId) {
@@ -107,6 +107,7 @@ function _createJob() {
     const randomIndex = (arr) => arr[Math.floor(Math.random() * arr.length)];
     
     return {
+        id: makeId(),
         title: randomIndex(titles),
         field: randomIndex(fields),
         experience: Math.floor(Math.random() * 10) + 1,
