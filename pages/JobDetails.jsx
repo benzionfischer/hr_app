@@ -35,17 +35,17 @@ export function JobDetails() {
         <section className="job-details">
             <JobDetailsHeader />
             <section className="job-details-content">
-                <h1>{job.title}</h1>
-                <h1>{job.experience} Years experience</h1>
-                <h1>{job.skills}</h1>
-                <h1>{job.workType}</h1>
-                <h1>{job.location}</h1>
+                <h2 className="job-details-title">{job.title}</h2>
+                <p className="job-details-not-title">{job.experience} Years experience</p>
+                <p className="job-details-not-title">{job.skills}</p>
+                <p className="job-details-not-title">{job.workType}</p>
+                <p className="job-details-not-title">{job.location}</p>
                 {/* <h1>{job.languages}</h1> */}
-                <h1>{job.jobType}</h1>
-                <h1>{job.degree}</h1>
-                <h1>{job.relocation}</h1>
+                <p className="job-details-not-title">{job.jobType}</p>
+                <p className="job-details-not-title">{job.degree}</p>
+                <p className="job-details-not-title">{job.relocation}</p>
                 {/* <h1>{job.salaryRange}</h1> */}
-                <h1>{job.description}</h1>
+                <p>{job.description}</p>
             </section>
         </section>
     )
