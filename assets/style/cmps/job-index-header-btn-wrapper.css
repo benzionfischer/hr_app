@@ -1,0 +1,14 @@
+.job-index-header-btn-wrapper {
+    width: 42px;
+    height: 42px;
+    background-color: rgb(113, 158, 221);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.job-index-header-btn-icon {
+    width: 75%;
+    height: 58%;
+}
