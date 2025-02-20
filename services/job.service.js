@@ -127,7 +127,6 @@ function _createJob() {
 const STAGE_KEY = "stageDB";
 
 function _createStages() {
-    console.log("dfdf")
     const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
     
     let jobs = loadFromStorage(JOB_KEY);

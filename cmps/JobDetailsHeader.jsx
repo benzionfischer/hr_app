@@ -13,10 +13,10 @@ export function JobDetailsHeader({ job }) {
             <button className="back-button" onClick={onBack}>🔙 Back</button> {/* Back Button */}
             
             <section className="job-details-header-tabs">
-                <Link to={`/job/${job.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={`/job/${job.id}/details`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <JobDetailsTab title="Details" job={job} />
                 </Link> 
-                <Link to={`/job/${job.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={`/job/${job.id}/stages`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <JobDetailsTab title="Stages" job={job} />
                 </Link> 
                 <Link to={`/job/${job.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>

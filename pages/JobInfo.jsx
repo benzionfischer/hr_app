@@ -2,13 +2,14 @@ import { jobService } from "../services/job.service.js"
 import { JobDetailsHeader } from "../cmps/JobDetailsHeader.jsx"
 
 const { useEffect, useState } = React
-const { useParams, useNavigate, Link } = ReactRouterDOM
+const { useParams, useNavigate, useLocation, Link } = ReactRouterDOM
 
 
-export function JobDetails() {
+export function JobInfo() {
     const [job, setJob] = useState(null)
     const params = useParams()
     const navigate = useNavigate()
+    const location =  useLocation()
 
     useEffect(() => {
         // console.log(job.id)
@@ -30,11 +31,15 @@ export function JobDetails() {
 
     // console.log('car:', car)
 
+    const tab = location.pathname.split("/").pop()
+
     if (!job) return <div>Details Loading...</div>
+    
     return (
         <section className="job-details">
             <JobDetailsHeader job={job} />
-            <section className="job-details-content">
+            { tab === "details" && 
+                <section className="job-details-content">
 
                 <div className="job-detail-description">
                     <img src="/assets/img/suitcase.png" alt="title" />
@@ -85,7 +90,9 @@ export function JobDetails() {
                     <img src="/assets/img/information.png" alt="Description" />
                     {job.description}
                 </div>
-            </section>
+            </section> }
+
+            { tab === "stages" && <div>Bla</div> }   
 
         </section>
     )
