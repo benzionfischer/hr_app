@@ -6,12 +6,10 @@ export function Stages({ job }) {
     const [stages, setStages] = useState([])
 
     useEffect(() => {
-        console.log("1")
         loadStages()
     }, [])
 
     function loadStages() {
-        console.log("2")
         stageService.query({ jobId: job.id})
             .then(setStages)
             .catch(err => {
