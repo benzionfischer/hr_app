@@ -1,5 +1,7 @@
 import { jobService } from "../services/job.service.js"
 import { JobDetailsHeader } from "../cmps/JobDetailsHeader.jsx"
+import { Stages } from "../cmps/Stages.jsx"
+
 
 const { useEffect, useState } = React
 const { useParams, useNavigate, useLocation, Link } = ReactRouterDOM
@@ -34,7 +36,7 @@ export function JobInfo() {
     const tab = location.pathname.split("/").pop()
 
     if (!job) return <div>Details Loading...</div>
-    
+
     return (
         <section className="job-details">
             <JobDetailsHeader job={job} />
@@ -92,7 +94,7 @@ export function JobInfo() {
                 </div>
             </section> }
 
-            { tab === "stages" && <div>Bla</div> }   
+            { tab === "stages" && <Stages job={job}/> }   
 
         </section>
     )

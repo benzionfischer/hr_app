@@ -1,0 +1,16 @@
+.stages {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.stages-reviewers {
+    flex: 3;
+    padding: 10px;
+    border-right: 1px solid black; /* Vertical border between sections */
+}
+
+.stages-lst {
+    flex: 5; /* Adjust width if needed */
+    padding: 10px;
+}
