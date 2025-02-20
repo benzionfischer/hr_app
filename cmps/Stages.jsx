@@ -17,7 +17,6 @@ export function Stages({ job }) {
             })
     }
 
-    console.log("stages: " + stages)
     return (
         <article className="stages">
             <div className="stages-reviewers">reviewers</div>
