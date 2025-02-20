@@ -33,7 +33,7 @@ export function JobDetails() {
     if (!job) return <div>Details Loading...</div>
     return (
         <section className="job-details">
-            <JobDetailsHeader />
+            <JobDetailsHeader job={job} />
             <section className="job-details-content">
 
                 <div className="job-detail-description">

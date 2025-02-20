@@ -11,9 +11,43 @@
     border-bottom: 1px solid black; /* Adds a black line at the bottom */
 }
 
-.job-index-header-tabs {
+.job-details-header-tabs {
     width: 21%;
     display: flex;
     flex-direction: row;
     gap: 7%;
+}
+
+
+.job-details-header-tab {
+    width: 60px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Centers items vertically */
+    justify-content: center;
+    color: white;
+    font-size: 15px;
+    background-color:grey;
+    border: 1px solid black;
+}
+
+.job-details-header-freeze-btn {
+    width: 64px;
+    height: 23px;
+    background-color:rgb(107, 172, 218);
+    border: 1px solid black;
+    border-radius: 9px;
+    color: white;
+    font-weight: 200;
+}
+
+.job-details-header-delete-btn {
+    width: 64px;
+    height: 23px;
+    background-color:red;
+    border: 1px solid black;
+    border-radius: 9px;
+    color: white;
+    font-weight: 200;
 }
