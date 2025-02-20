@@ -119,6 +119,7 @@ function _createJob() {
         degree: randomIndex(degrees),
         relocation: Math.random() > 0.5,
         salaryRange: randomIndex(salaryRanges),
-        description: randomIndex(descriptions)
+        description: randomIndex(descriptions),
+        companyId: 1 //Hard coded companyId For MVP
     };
 }
