@@ -8,10 +8,30 @@
     margin: 0; /* Ensures there is no extra space */
 }
 
-.job-details-title {
-    padding-left: 2%;
+.job-detail-item {
+    padding-left: 9%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between image and text */
+    margin-bottom: 8px;
 }
 
-.job-details-not-title {
-    padding-left: 5%;
+.job-detail-item img {
+    width: 30px;  /* Set a reasonable size for icons */
+    height: 30px;
+}
+
+.job-detail-description {
+    padding-left: 4%;
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between image and text */
+    margin-bottom: 8px; /* Add some spacing between rows */
+}
+
+.job-detail-description img {
+    width: 5%;  /* Set a reasonable size for icons */
+    height: 5%;
 }

@@ -35,18 +35,58 @@ export function JobDetails() {
         <section className="job-details">
             <JobDetailsHeader />
             <section className="job-details-content">
-                <h2 className="job-details-title">{job.title}</h2>
-                <p className="job-details-not-title">{job.experience} Years experience</p>
-                <p className="job-details-not-title">{job.skills}</p>
-                <p className="job-details-not-title">{job.workType}</p>
-                <p className="job-details-not-title">{job.location}</p>
-                {/* <h1>{job.languages}</h1> */}
-                <p className="job-details-not-title">{job.jobType}</p>
-                <p className="job-details-not-title">{job.degree}</p>
-                <p className="job-details-not-title">{job.relocation}</p>
-                {/* <h1>{job.salaryRange}</h1> */}
-                <p>{job.description}</p>
+
+                <div className="job-detail-description">
+                    <img src="/assets/img/suitcase.png" alt="title" />
+                    <h1>{job.title}</h1>
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/calendar.png" alt="Experience" />
+                    {job.experience} Years experience
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/light.png" alt="Skills" />
+                    {job.skills}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/calendar.png" alt="Work Type" />
+                    {job.workType}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/location.png" alt="Location" />
+                    {job.location}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/clock.png" alt="Job Type" />
+                    {job.jobType}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/education.png" alt="Degree" />
+                    {job.degree}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/calendar.png" alt="Relocation" />
+                    Relocation: {job.relocation ? "Yes" : "No"}
+                </div>
+
+                <div className="job-detail-item">
+                    <img src="/assets/img/money.png" alt="Relocation" />
+                    Salary Range: {job.salaryRange.min} - {job.salaryRange.max}
+                </div>
+
+                <div className="job-detail-description">
+                    <img src="/assets/img/information.png" alt="Description" />
+                    {job.description}
+                </div>
             </section>
+
         </section>
     )
 }
