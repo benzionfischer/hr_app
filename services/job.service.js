@@ -124,19 +124,6 @@ function _createJob() {
     };
 }
 
-// function _createStages() {
-//     let jobs = loadFromStorage(STAGE_KEY)
-//     if (!jobs || !jobs.length) {
-//         let stages = jobs.map(job => {
-//             for (let i =0 ; i < 3 ; ++i) {
-
-//             }
-//         })
-//         saveToStorage(STAGE_KEY, stages)
-//     }
-// }
-
-
 const STAGE_KEY = "stageDB";
 
 function _createStages() {
@@ -164,6 +151,7 @@ function _createStages() {
                 jobId: job.id,
                 name: stageNames[i % stageNames.length], // Cycle through predefined names
                 prev: prevStageId, // Link to the previous stage
+                next: null
             };
             
             stages[stages.length - 1].next = newStage.id; // Set next for the previous stage
