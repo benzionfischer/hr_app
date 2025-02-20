@@ -123,3 +123,70 @@ function _createJob() {
         companyId: 1 //Hard coded companyId For MVP
     };
 }
+
+// function _createStages() {
+//     let jobs = loadFromStorage(STAGE_KEY)
+//     if (!jobs || !jobs.length) {
+//         let stages = jobs.map(job => {
+//             for (let i =0 ; i < 3 ; ++i) {
+
+//             }
+//         })
+//         saveToStorage(STAGE_KEY, stages)
+//     }
+// }
+
+
+const STAGE_KEY = "stageDB";
+
+function _createStages() {
+    console.log("dfdf")
+    const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
+    
+    let jobs = loadFromStorage(JOB_KEY);
+    let stages = jobs.map(job => {
+        const numStages = Math.floor(Math.random() * 4) + 1; // Generate between 1 and 5 stages
+
+        const firstStage = {
+            id: makeId(),
+            jobId: job.id,
+            name: "Phone call",
+            prev: null, // First stage has no previous stage
+        };
+
+        const stages = [firstStage];
+
+        let prevStageId = firstStage.id; // Track previous stage ID
+
+        for (let i = 0; i < numStages; i++) {
+            const newStage = {
+                id: makeId(),
+                jobId: job.id,
+                name: stageNames[i % stageNames.length], // Cycle through predefined names
+                prev: prevStageId, // Link to the previous stage
+            };
+            
+            stages[stages.length - 1].next = newStage.id; // Set next for the previous stage
+            
+            stages.push(newStage);
+            prevStageId = newStage.id;
+        }
+
+        const lastStage = {
+            id: makeId(),
+            jobId: job.id,
+            name: "Contract",
+            prev: prevStageId, // Previous stage links to this last stage
+            next: null // Last stage has no next stage
+        };
+
+        stages[stages.length - 1].next = lastStage.id; // Set next for the previous stage
+        stages.push(lastStage);
+
+        return stages;
+    }).flat();
+
+    saveToStorage(STAGE_KEY, stages);
+}
+
+_createStages()
