@@ -29,3 +29,27 @@
     height: 1px; /* Thickness of the line */
     background-color: black;
 }
+
+.button-container {
+    display: flex;
+    gap: 1px; /* Space between buttons */
+    padding-left: 40px;
+}
+
+.circle-button {
+    background: none;
+    border: none;
+    padding: 5px; /* Reduce padding to make the button smaller */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.circle-button img {
+    width: 30px; /* Make the image smaller */
+    height: 30px; /* Make the image smaller */
+}
+
+

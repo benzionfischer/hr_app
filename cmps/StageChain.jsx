@@ -22,6 +22,16 @@ export function StageChain({ stages }) {
                     {index < stages.length - 1 && <div className="line"></div>} {/* Add line except after the last circle */}
                 </React.Fragment>
             ))}
+            
+            <div className="button-container">
+                <button className="circle-button">
+                    <img src="assets/img/add.png" alt="Icon 1" />
+                </button>
+                <button className="circle-button">
+                    <img src="assets/img/garbage.png" alt="Icon 2" />
+                </button>
+            </div>
+            
         </div>
     );
 }
