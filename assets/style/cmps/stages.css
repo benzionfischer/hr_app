@@ -12,5 +12,6 @@
 
 .stages-lst {
     flex: 5; /* Adjust width if needed */
-    padding: 10px;
+    padding-top: 50px;
+    padding-left: 60px;
 }

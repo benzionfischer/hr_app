@@ -137,6 +137,7 @@ function _createStages() {
             id: makeId(),
             jobId: job.id,
             name: "Phone call",
+            type: "CALL",
             prev: null, // First stage has no previous stage
         };
 
@@ -149,6 +150,7 @@ function _createStages() {
                 id: makeId(),
                 jobId: job.id,
                 name: stageNames[i % stageNames.length], // Cycle through predefined names
+                type: "OTHER",
                 prev: prevStageId, // Link to the previous stage
                 next: null
             };
@@ -163,6 +165,7 @@ function _createStages() {
             id: makeId(),
             jobId: job.id,
             name: "Contract",
+            type: "CONTRACT",
             prev: prevStageId, // Previous stage links to this last stage
             next: null // Last stage has no next stage
         };

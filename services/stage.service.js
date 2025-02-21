@@ -17,8 +17,6 @@ function query(filterBy = {}) {
 
     return storageService.query(STAGE_KEY)
         .then(stages => {
-            console.log("stages: " + stages)
-
             if (filterBy.jobId) {
                 stages = stages.filter(stage => stage.jobId == filterBy.jobId)
             }

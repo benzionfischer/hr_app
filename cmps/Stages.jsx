@@ -1,6 +1,7 @@
 import { stageService } from "../services/stage.service.js"
 import { reviewerService } from "../services/reviewer.service.js"
 import { UserProfile } from "./UserProfile.jsx"
+import { StageChain } from "./StageChain.jsx"
 
 const { useEffect, useState } = React
 
@@ -38,9 +39,7 @@ export function Stages({ job }) {
                 ))}
             </div>
             <div className="stages-lst">
-                {stages.map((stage, index) => (
-                    <div key={index}>{index+1}. {stage.name}</div> // Display stage name
-                ))}
+                <StageChain stages={stages}/>
             </div>
         </article>
     )
