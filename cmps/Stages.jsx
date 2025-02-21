@@ -7,22 +7,11 @@ const { useEffect, useState } = React
 export function Stages({ job }) {
 
     const [stages, setStages] = useState([])
-    const [reviewers, setReviewers] = useState([
-        {  
-            id: "abcd123",
-            name: "Ben Fisher",
-            role: "CTO"
-        },
-        {  
-            id: "tyu456",
-            name: "Itzik Nehemia",
-            role: "CEO"
-        }
-    ])
+    const [reviewers, setReviewers] = useState([])
 
     useEffect(() => {
         loadStages()
-        // loadReviewers()
+        loadReviewers()
     }, [])
 
     function loadStages() {
@@ -45,7 +34,7 @@ export function Stages({ job }) {
         <article className="stages">
             <div className="stages-reviewers">   
                 {reviewers.map((reviewer, index) => (
-                    <UserProfile name={reviewer.name} role={reviewer.role}/>
+                    <UserProfile name={reviewer.name} role={reviewer.role} icon={reviewer.icon}/>
                 ))}
             </div>
             <div className="stages-lst">

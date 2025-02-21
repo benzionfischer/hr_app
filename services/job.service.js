@@ -177,3 +177,34 @@ function _createStages() {
 }
 
 _createStages()
+
+
+const REVIEWER_KEY = "reviewerDB";
+
+function _createReviewers() {
+    
+    const reviewers = [
+        {  
+            id: makeId(),
+            name: "Ben Fisher",
+            role: "CTO",
+            icon: "assets/img/male-profile-1.png"
+        },
+        {  
+            id: makeId(),
+            name: "Itzik Nehemia",
+            role: "CEO",
+            icon: "assets/img/male-profile-2.png"
+        },
+        {  
+            id: makeId(),
+            name: "Inbal Shelef",
+            role: "Human Resource",
+            icon: "assets/img/female-profile-3.png"
+        }
+    ]
+
+    saveToStorage(REVIEWER_KEY, reviewers);
+}
+
+_createReviewers()

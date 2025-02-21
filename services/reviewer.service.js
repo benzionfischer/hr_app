@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 
 const REVIEWER_KEY = 'reviewerDB'
 
-export const reviewService = {
+export const reviewerService = {
     query,
     get,
     remove,
