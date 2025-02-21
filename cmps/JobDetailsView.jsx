@@ -6,13 +6,11 @@ import { StageChain } from "./StageChain.jsx";
 
 const { useEffect, useState } = React;
 
+// mode: ["view", "edit"]
 export function JobDetailsView({ job }) {
+
     return (
-        <section className="job-details-content">
-            {/* Edit button in the top-right corner */}
-            <button className="job-details-edit-button">
-                <img src="/assets/img/edit.png" alt="Edit" />
-            </button>
+        <section className="job-details-view">
 
             <div className="job-detail-description">
                 <img src="/assets/img/suitcase.png" alt="title" />
@@ -63,7 +61,6 @@ export function JobDetailsView({ job }) {
                 <img src="/assets/img/information.png" alt="Description" />
                 <span>{job.description}</span>
             </div>
-        </section>
-    );
+        </section>);
 }
 
