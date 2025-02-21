@@ -1,7 +1,7 @@
 const { Link } = ReactRouterDOM;
 
 
-export function JobDetailsTab({ job, title }) {
+export function JobInfoTab({ job, title }) {
 
     return (<div className="job-details-header-tab">
                 {title}

@@ -5,7 +5,7 @@ import { StageChain } from "./StageChain.jsx"
 
 const { useEffect, useState } = React
 
-export function JobDataView({ job }) {
+export function JobDetailsView({ job }) {
     return (
         <section className="job-details-content">
 

@@ -1,5 +1,5 @@
 const { Link, useNavigate } = ReactRouterDOM;
-import { JobDetailsTab } from "../cmps/JobDetailsTab.jsx";
+import { JobInfoTab } from "../cmps/JobInfoTab.jsx";
 
 export function JobDetailsHeader({ job }) {
     const navigate = useNavigate(); // Hook for navigation
@@ -14,13 +14,13 @@ export function JobDetailsHeader({ job }) {
             
             <section className="job-details-header-tabs">
                 <Link to={`/job/${job.id}/details`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <JobDetailsTab title="Details" job={job} />
+                    <JobInfoTab title="Details" job={job} />
                 </Link> 
                 <Link to={`/job/${job.id}/stages`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <JobDetailsTab title="Stages" job={job} />
+                    <JobInfoTab title="Stages" job={job} />
                 </Link> 
                 <Link to={`/job/${job.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <JobDetailsTab title="Launch" job={job} />
+                    <JobInfoTab title="Launch" job={job} />
                 </Link> 
             </section>
             <section> 

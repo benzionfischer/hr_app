@@ -1,7 +1,7 @@
 import { jobService } from "../services/job.service.js"
 import { JobDetailsHeader } from "../cmps/JobDetailsHeader.jsx"
 import { Stages } from "../cmps/Stages.jsx"
-import { JobDataView } from "../cmps/JobDataView.jsx"
+import { JobDetailsView } from "../cmps/JobDetailsView.jsx"
 
 
 
@@ -42,7 +42,7 @@ export function JobInfo() {
     return (
         <section className="job-details">
             <JobDetailsHeader job={job} />
-            { tab === "details" && <JobDataView job={job}/>}
+            { tab === "details" && <JobDetailsView job={job}/>}
             { tab === "stages" && <Stages job={job}/> }   
         </section>
     )
