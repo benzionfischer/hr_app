@@ -1,6 +1,8 @@
 import { JobFilter } from "../cmps/JobFilter.jsx"
 import { JobList } from "../cmps/JobList.jsx"
 import { JobIndexHeaderButton } from "../cmps/JobIndexHeaderButton.jsx"
+import { JobIndexHeader } from "../cmps/JobIndexHeader.jsx"
+
 
 import { jobService } from "../services/job.service.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
@@ -48,20 +50,7 @@ export function JobIndex() {
     // if (!cars) return <div>Loading...</div>
     return (
         <section className="job-index">
-            
-            <div className="job-index-header">
-                <JobFilter defaultFilter={filterBy} onSetFilter={onSetFilter} />
-                <section className="job-index-header-tabs">
-                    <JobIndexHeaderButton icon="assets/img/add.png"/>
-                    <JobIndexHeaderButton icon="assets/img/freeze.png"/>
-                    <JobIndexHeaderButton icon="assets/img/garbage.png"/>
-                </section>
-            </div>
-            {/* <section>
-                <Link to="/car/edit">Add Car</Link>
-                <Link to="/car/edit">Add Car</Link>
-                <Link to="/car/edit">Add Car</Link>
-            </section> */}
+            <JobIndexHeader filterBy={filterBy} onSetFilter={onSetFilter}/>
             {jobs
                 ? <JobList
                     jobs={jobs}
