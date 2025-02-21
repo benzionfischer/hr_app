@@ -1,5 +1,6 @@
 import { stageService } from "../services/stage.service.js"
 import { reviewerService } from "../services/reviewer.service.js"
+import { UserProfile } from "./UserProfile.jsx"
 
 const { useEffect, useState } = React
 
@@ -10,10 +11,12 @@ export function Stages({ job }) {
         {  
             id: "abcd123",
             name: "Ben Fisher",
+            role: "CTO"
         },
         {  
             id: "tyu456",
             name: "Itzik Nehemia",
+            role: "CEO"
         }
     ])
 
@@ -42,8 +45,9 @@ export function Stages({ job }) {
         <article className="stages">
             <div className="stages-reviewers">   
                 {reviewers.map((reviewer, index) => (
-                    <div key={index}>{index+1}. {reviewer.name}</div> // Display stage name
-                ))}</div>
+                    <UserProfile name={reviewer.name} role={reviewer.role}/>
+                ))}
+            </div>
             <div className="stages-lst">
                 {stages.map((stage, index) => (
                     <div key={index}>{index+1}. {stage.name}</div> // Display stage name

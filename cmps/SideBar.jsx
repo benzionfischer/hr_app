@@ -11,7 +11,7 @@ export function SideBar() {
 
     return (
         <section className="side-bar">
-            <UserProfile/>
+            <UserProfile name="Bar" role="Human Resource"/>
             <nav className="side-bar-nav">
                 <NavLink to="/home">Profile</NavLink> 
                 <NavLink to="/job">Jobs</NavLink> 

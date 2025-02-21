@@ -1,6 +1,6 @@
 const { useEffect, useState } = React
 
-export function UserProfile() {
+export function UserProfile({ name, role} ) {
 
     const [user, setUser] = useState({ name: "Bar", role: "Human Resource", img: "assets/img/profile.png"})
 
@@ -11,9 +11,9 @@ export function UserProfile() {
             <div className="profile-picture">
                 <img src="assets/img/profile.png" alt="Icon"/>
             </div>
-            <div className="profile-name">
-                <p>Bar</p>
-                <p>Human Resource</p>
+            <div className="profile-details">
+                <p>{name}</p>
+                <p>{role}</p>
             </div>
         </div>
     );

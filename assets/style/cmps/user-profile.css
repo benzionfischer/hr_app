@@ -1,0 +1,45 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-picture {
+    position: relative;  /* Position relative to its container */
+    top: 10px;  /* Adjust vertical position */
+    left: 18%;  /* Center the circle horizontally */
+    width: 60px;  /* Diameter of the circle */
+    height: 60px;  /* Diameter of the circle */
+    border-radius: 50%;  /* Make it circular */
+    background-color: #ff8c00;  /* Circle color */
+    margin-bottom: 20px;  /* Space between the circle and the header */
+    transform: translateX(-50%);  /* Center the circle */
+    display: flex;  /* Use flexbox */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    overflow: hidden;  /* Hide any overflowing content */
+    border: 2px solid black;
+}
+
+.profile-picture img {
+    width: 100%;  /* Fill the circle */
+    height: 100%;  /* Fill the circle */
+    object-fit: cover;  /* Ensure the image covers the area without distortion */
+    border-radius: 50%;  /* Make sure the image is also circular */
+}
+
+
+.profile-details {
+    position: relative;  /* Position relative to its container */
+    display:flex;
+    flex-direction: column;
+    padding-top: 5px;  
+    padding-left: 11%;  /* Center the circle horizontally */
+}
+
+.profile-details p:first-child {
+    font-weight: bold;
+}
+
+.profile-details p {
+    margin: 5px 0 0 0; 
+}
