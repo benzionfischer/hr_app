@@ -1,5 +1,5 @@
 const { Link } = ReactRouterDOM;
-import { JobPreview } from "./JobPreview.jsx";
+import { JobListItem } from "./JobListItem.jsx";
 
 export function JobList({ jobs }) {
     return (
@@ -7,7 +7,7 @@ export function JobList({ jobs }) {
             {jobs.map(job => (
                 <div key={job.id} className="job-item">
                     <Link to={`/job/${job.id}/details`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <JobPreview job={job} />
+                        <JobListItem job={job} />
                     </Link>
                 </div>
             ))}

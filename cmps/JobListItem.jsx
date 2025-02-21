@@ -1,5 +1,5 @@
 
-export function JobPreview({ job }) {
+export function JobListItem({ job }) {
 
     return (
         <article className="job-preview">
