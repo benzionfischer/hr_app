@@ -36,7 +36,7 @@ export function JobDetails({ job, modeEx}) {
             </button>
 
             {mode === "view" && <JobDetailsView job={job} />}
-            {mode === "edit" && <JobDetailsEdit job={job} handleSave={handleSave} handleChange={handleChange}/>}    
+            {mode === "edit" && <JobDetailsEdit job={editedJob} handleSave={handleSave} handleChange={handleChange}/>}    
         </section>);
 }
 
