@@ -1,11 +1,18 @@
 const { Link, useNavigate } = ReactRouterDOM;
 import { JobInfoTab } from "./JobInfoTab.jsx";
+import { jobService } from "../services/job.service.js";
+
 
 export function JobInfoHeader({ job }) {
     const navigate = useNavigate(); // Hook for navigation
 
     function onBack() {
         navigate('/job'); // Change this to your specific path
+    }
+
+    function deleteJob() {
+        jobService.remove(job.id)
+        navigate('/job')
     }
 
     return (
@@ -25,7 +32,7 @@ export function JobInfoHeader({ job }) {
             </section>
             <section> 
                 <button className="job-details-header-freeze-btn" onClick={onBack}>Freeze</button> {/* Back Button */}
-                <button className="job-details-header-delete-btn" onClick={onBack}>Delete</button> {/* Back Button */}
+                <button className="job-details-header-delete-btn" onClick={deleteJob}>Delete</button> {/* Back Button */}
             </section>
         </div>
     );
