@@ -1,12 +1,9 @@
 
-import { stageService } from "../services/stage.service.js";
-import { reviewerService } from "../services/reviewer.service.js";
-import { UserProfile } from "./UserProfile.jsx";
-import { StageChain } from "./StageChain.jsx";
 import { JobDetailsView } from "./JobDetailsView.jsx";
 import { JobDetailsEdit } from "../pages/JobDetailsEdit.jsx";
+import { jobService } from "../services/job.service.js";
 
-
+const { Link, useNavigate } = ReactRouterDOM;
 const { useEffect, useState } = React;
 
 // mode: ["view", "edit"]
@@ -14,10 +11,12 @@ export function JobDetails({ job, modeEx}) {
 
     const [mode, setMode] = useState(modeEx)
     const [editedJob, setEditedJob] = useState({ ...job });
+    const navigate = useNavigate()
 
     function handleSave(event) {
         event.preventDefault();
-        onSave(editedJob);
+        jobService.save(editedJob);
+        navigate(`/job`)
     }
 
     function handleChange(event) {
