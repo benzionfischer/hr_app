@@ -34,7 +34,6 @@ export function Stages({ job }) {
     }
 
 
-    console.log(JSON.stringify(stages))
     return (
         <article className="stages">
             <div className="stages-reviewers">   
