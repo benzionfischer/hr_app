@@ -22,7 +22,6 @@ export function JobInfo() {
 
     function loadJob() {
         if (!params.jobId) {
-            console.log("...")
             setJob(jobService.getEmptyJob())
             return
         }
@@ -45,11 +44,13 @@ export function JobInfo() {
 
     if (!job) return <div>Details Loading...</div>
 
-    console.log("tab: " + tab)
+    // console.log("tab: " + tab)
+    // console.log("job: " + JSON.stringify(job))
+
     return (
         <section className="job-info">
             <JobDetailsHeader job={job} />
-            { tab === "details" || tab === "" && <JobDetails job={job} modeEx={ tab == "details" ? "view": "edit"}/>}
+            { (tab === "details" || tab === "new") && <JobDetails job={job} modeEx={ tab === "details" ? "view": "edit"}/>}
             { tab === "stages" && <Stages job={job}/> }   
         </section>
     )

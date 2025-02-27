@@ -19,7 +19,7 @@ export function JobDetails({ job, modeEx}) {
             .then(persistedJob => {
                 setEditedJob(persistedJob)
                 setMode("view")
-                navigate(`/job/${job.id}/details`)
+                navigate(`/job/${persistedJob.id}/details`)
             })
     }
 
