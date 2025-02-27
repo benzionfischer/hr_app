@@ -1,6 +1,14 @@
 .job-details {
-
+    position: relative; 
 }
+
+.job-details-btn {
+    position: absolute;
+    right: 0; /* Positions the button to the right edge */
+    top: 0;
+    z-index: 10; 
+}
+
 .job-details-view {
     display: flex;
     flex-direction: column;
