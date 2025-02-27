@@ -1,0 +1,12 @@
+.stage-details {
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-top: 100px;  /* Moves the entire box down */
+    margin-left: 100px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* 50% transparent black border */
+    border-radius: 8px; 
+    background-color: transparent; /* Makes the background fully transparent */
+}
+

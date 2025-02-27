@@ -141,6 +141,8 @@ function _createJob() {
 const STAGE_KEY = "stageDB";
 
 function _createStages() {
+
+    console.log("Create stages has been run .. ")
     const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
     
     let jobs = loadFromStorage(JOB_KEY);
@@ -193,7 +195,8 @@ function _createStages() {
     saveToStorage(STAGE_KEY, stages);
 }
 
-_createStages()
+// verify that it run only if no stages in the storage
+// _createStages()
 
 
 const REVIEWER_KEY = "reviewerDB";

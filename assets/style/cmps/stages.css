@@ -5,13 +5,13 @@
 }
 
 .stages-reviewers {
-    flex: 3;
+    flex: 1;
     padding: 10px;
     border-right: 1px solid black; /* Vertical border between sections */
 }
 
-.stages-lst {
-    flex: 5; /* Adjust width if needed */
+.stages-content {
+    flex: 3; 
     padding-top: 50px;
     padding-left: 60px;
 }
