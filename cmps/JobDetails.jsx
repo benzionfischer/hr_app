@@ -35,9 +35,11 @@ export function JobDetails({ job, modeEx}) {
 
     return (
         <section className="job-details"> 
-             <button class="job-details-btn" onClick={toggleMode}>{/* className="job-details-edit-button" */}
-                <img src="/assets/img/edit.png" alt="Edit" /><br/>
-                Edit
+            <button className="job-details-btn" onClick={toggleMode}>
+                {/* Change image based on mode */}
+                <img src={`/assets/img/${mode === "view" ? "edit.png" : "view.png"}`} alt={mode === "view" ? "Edit" : "View"} />
+                <br/>
+                {mode === "view" ? "Edit" : "View"}
             </button>
 
             {mode === "view" && <JobDetailsView job={editedJob} />}
