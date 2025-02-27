@@ -8,10 +8,10 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             <label>Location: <input type="text" name="location" value={job.location} onChange={handleChange} /></label><br/>
             <label>Job Type: <input type="text" name="jobType" value={job.jobType} onChange={handleChange} /></label><br/>
             <label>Degree: <input type="text" name="degree" value={job.degree} onChange={handleChange} /></label><br/>
-            <label>Relocation: <select name="relocation" value={job.relocation} onChange={handleChange}><br/>
+            <label>Relocation: <select name="relocation" value={job.relocation} onChange={handleChange}>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
-            </select></label><br/>
+            </select></label>
             <label>Salary Range:
                 <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} /> -
                 <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} />
