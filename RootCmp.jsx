@@ -31,6 +31,7 @@ export function App() {
                         </Route>
                         <Route path="/job" element={<JobIndex />} />
                         <Route path="/job/:jobId/details" element={<JobInfo />} />
+                        <Route path="/job/new" element={<JobInfo  />} />
                         <Route path="/job/:jobId/stages" element={<JobInfo />} />
                         {/* <Route path="/car/edit" element={<CarEdit />} /> */}
                         {/* <Route path="/car/edit/:carId" element={<CarEdit />} /> */}

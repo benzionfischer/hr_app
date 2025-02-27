@@ -11,7 +11,7 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             <label>Relocation: <select name="relocation" value={job.relocation} onChange={handleChange}>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
-            </select></label>
+            </select></label> <br/>
             <label>Salary Range:
                 <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} /> -
                 <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} />

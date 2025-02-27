@@ -44,7 +44,21 @@ function save(job) {
 }
 
 function getEmptyJob(title = '', description = ' ') {
-    return { title, description }
+    return {
+        title: "",
+        field: "",
+        experience: 0, // Null for numeric values
+        skills: [],
+        workType: "",
+        location: "",
+        languages: [],
+        jobType: "",
+        degree: "",
+        relocation: false, // Default to false
+        salaryRange: "",
+        description: "",
+        companyId: 1 // Null to indicate no company assigned
+    }
 }
 
 function getDefaultFilter() {
