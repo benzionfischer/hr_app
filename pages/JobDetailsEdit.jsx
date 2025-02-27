@@ -1,4 +1,4 @@
-export function JobEdit({ job, handleSave, handleChange }) {
+export function JobDetailsEdit({ job, handleSave, handleChange }) {
     return (
         <form className="job-edit" onSubmit={handleSave}>
             <label>Title: <input type="text" name="title" value={job.title} onChange={handleChange} /></label> <br/>

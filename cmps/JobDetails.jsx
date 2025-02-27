@@ -4,7 +4,7 @@ import { reviewerService } from "../services/reviewer.service.js";
 import { UserProfile } from "./UserProfile.jsx";
 import { StageChain } from "./StageChain.jsx";
 import { JobDetailsView } from "./JobDetailsView.jsx";
-import { JobEdit } from "../pages/JobEdit.jsx";
+import { JobDetailsEdit } from "../pages/JobDetailsEdit.jsx";
 
 
 const { useEffect, useState } = React;
@@ -37,7 +37,7 @@ export function JobDetails({ job, modeEx}) {
             </button>
 
             {mode === "view" && <JobDetailsView job={job} />}
-            {mode === "edit" && <JobEdit job={job} handleSave={handleSave} handleChange={handleChange}/>}    
+            {mode === "edit" && <JobDetailsEdit job={job} handleSave={handleSave} handleChange={handleChange}/>}    
         </section>);
 }
 
