@@ -15,8 +15,12 @@ export function JobDetails({ job, modeEx}) {
 
     function handleSave(event) {
         event.preventDefault();
-        jobService.save(editedJob);
-        navigate(`/job`)
+        jobService.save(editedJob)
+            .then(persistedJob => {
+                setEditedJob(persistedJob)
+                setMode("view")
+                navigate(`/job/${job.id}/details`)
+            })
     }
 
     function handleChange(event) {
@@ -35,7 +39,7 @@ export function JobDetails({ job, modeEx}) {
                 <img src="/assets/img/edit.png" alt="Edit" />
             </button>
 
-            {mode === "view" && <JobDetailsView job={job} />}
+            {mode === "view" && <JobDetailsView job={editedJob} />}
             {mode === "edit" && <JobDetailsEdit job={editedJob} handleSave={handleSave} handleChange={handleChange}/>}    
         </section>);
 }

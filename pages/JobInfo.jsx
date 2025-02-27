@@ -33,7 +33,7 @@ export function JobInfo() {
         // navigate(-1)
     }
 
-    // console.log('car:', car)
+    // console.log('Job info page loaded')
 
     const tab = location.pathname.split("/").pop()
 
