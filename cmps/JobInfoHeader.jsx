@@ -1,7 +1,7 @@
 const { Link, useNavigate } = ReactRouterDOM;
-import { JobInfoTab } from "../cmps/JobInfoTab.jsx";
+import { JobInfoTab } from "./JobInfoTab.jsx";
 
-export function JobDetailsHeader({ job }) {
+export function JobInfoHeader({ job }) {
     const navigate = useNavigate(); // Hook for navigation
 
     function onBack() {
