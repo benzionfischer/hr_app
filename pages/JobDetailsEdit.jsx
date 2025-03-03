@@ -1,23 +1,69 @@
 export function JobDetailsEdit({ job, handleSave, handleChange }) {
     return (
-        <form className="job-details-edit" onSubmit={handleSave}>
-            <label>Title: <input type="text" name="title" value={job.title} onChange={handleChange} /></label> <br/>
-            <label>Experience: <input type="number" name="experience" value={job.experience} onChange={handleChange} /></label><br/>
-            <label>Skills: <input type="text" name="skills" value={job.skills} onChange={handleChange} /></label><br/>
-            <label>Work Type: <input type="text" name="workType" value={job.workType} onChange={handleChange} /></label><br/>
-            <label>Location: <input type="text" name="location" value={job.location} onChange={handleChange} /></label><br/>
-            <label>Job Type: <input type="text" name="jobType" value={job.jobType} onChange={handleChange} /></label><br/>
-            <label>Degree: <input type="text" name="degree" value={job.degree} onChange={handleChange} /></label><br/>
-            <label>Relocation: <select name="relocation" value={job.relocation} onChange={handleChange}>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select></label> <br/>
-            <label>Salary Range:
-                <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} /> -
-                <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} />
-            </label><br/>
-            <label>Description: <textarea name="description" value={job.description} onChange={handleChange} /></label><br/>
-            <button type="submit">Save</button>
+        <form className="job-details-view" onSubmit={handleSave}>
+
+            <div className="job-detail-description">
+                <img src="/assets/img/suitcase.png" alt="title" />
+                <label>Title: <input type="text" name="title" value={job.title} onChange={handleChange} /></label> 
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/calendar.png" alt="Experience" />
+                <label>Experience: <input type="number" name="experience" value={job.experience} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/light.png" alt="Skills" />
+                <label>Skills: <input type="text" name="skills" value={job.skills} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/calendar.png" alt="Work Type" />
+                <label>Work Type: <input type="text" name="workType" value={job.workType} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/location.png" alt="Location" />
+                <label>Location: <input type="text" name="location" value={job.location} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/clock.png" alt="Job Type" />
+                <label>Job Type: <input type="text" name="jobType" value={job.jobType} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/education.png" alt="Degree" />
+                <label>Degree: <input type="text" name="degree" value={job.degree} onChange={handleChange} /></label>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/calendar.png" alt="Relocation" />
+                <label>Relocation: 
+                    <select name="relocation" value={job.relocation} onChange={handleChange}>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                    </select>
+                </label> 
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/money.png" alt="Salary" />
+                <label>Salary Range:
+                    <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} /> -
+                    <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} />
+                </label>
+            </div>
+
+            <div className="job-detail-description">
+                <img src="/assets/img/information.png" alt="Description" />
+                <label>Description: <textarea name="description" value={job.description} onChange={handleChange} /></label>
+            </div>
+
+            <button type="submit">Save</button> 
         </form>
     )
 }
+
+
+
