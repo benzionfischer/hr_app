@@ -26,7 +26,7 @@ export function Stages({ job }) {
     }
 
     function loadReviewers() {
-        reviewerService.query()
+        reviewerService.query()  // add filter by companyID
             .then(setReviewers)
             .catch(err => {
                 console.log('Problems getting reviewers:', err)
