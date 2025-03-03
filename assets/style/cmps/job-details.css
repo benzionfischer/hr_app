@@ -59,7 +59,14 @@
 
 .job-detail-item-input {
     background-color: rgb(228, 177, 144);; /* Light gray background */
+    width: 120px;
 }
+
+.job-detail-item-input-salary {
+    background-color: rgb(228, 177, 144);; /* Light gray background */
+    width: 60px;
+}
+
 
 .job-detail-item-input::placeholder {
     color: black; /* Placeholder text color */

@@ -4,23 +4,26 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
 
             <div className="job-detail-description">
                 <img src="/assets/img/suitcase.png" alt="title" />
-                <label>Title: <input type="text" name="title" value={job.title} onChange={handleChange} placeholder="Job Title..." className="job-detail-item-input" /></label> 
+                <label><input type="text" name="title" value={job.title} onChange={handleChange} placeholder="Job Title..." className="job-detail-item-input" /></label> 
             </div>
 
             <div className="job-detail-item">
                 <img src="/assets/img/calendar.png" alt="Experience" />
-                <label>Experience: <input type="number" name="experience" value={job.experience} onChange={handleChange} className="job-detail-item-input"/></label>
+                <label>Experience: <input type="number" name="experience" value={job.experience} onChange={handleChange}  className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
                 <img src="/assets/img/light.png" alt="Skills" />
-                <label>Skills: <input type="text" name="skills" value={job.skills} onChange={handleChange} className="job-detail-item-input" /></label>
+                <label><input type="text" name="skills" value={job.skills} onChange={handleChange} placeholder="Knowledge..." className="job-detail-item-input" /></label>
             </div>
-
+{/* 
             <div className="job-detail-item">
                 <img src="/assets/img/calendar.png" alt="Work Type" />
-                <label>Work Type: <input type="text" name="workType" value={job.workType} onChange={handleChange} className="job-detail-item-input"/></label>
-            </div>
+                <label>Days at office:
+                    <input type="number" name="officeDays.min" value={job.officeDays.min} onChange={handleChange} className="job-detail-item-input"/> -
+                    <input type="number" name="officeDays.max" value={job.officeDays.max} onChange={handleChange} className="job-detail-item-input"/>
+                </label>
+            </div> */}
 
             <div className="job-detail-item">
                 <img src="/assets/img/location.png" alt="Location" />
@@ -34,11 +37,11 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
 
             <div className="job-detail-item">
                 <img src="/assets/img/education.png" alt="Degree" />
-                <label>Degree: <input type="text" name="degree" value={job.degree} onChange={handleChange} className="job-detail-item-input"/></label>
+                <label><input type="text" name="degree" value={job.degree} onChange={handleChange}  placeholder="Education..." className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
-                <img src="/assets/img/calendar.png" alt="Relocation" className="job-detail-item-input"/>
+                <img src="/assets/img/globe.png" alt="Relocation" className="job-detail-item-input"/>
                 <label>Relocation: 
                     <select name="relocation" value={job.relocation} onChange={handleChange} className="job-detail-item-input">
                     <option value="true">Yes</option>
@@ -50,8 +53,8 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             <div className="job-detail-item">
                 <img src="/assets/img/money.png" alt="Salary" />
                 <label>Salary Range:
-                    <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} className="job-detail-item-input"/> -
-                    <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} className="job-detail-item-input"/>
+                    <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} className="job-detail-item-input-salary"/> -
+                    <input type="number" name="salaryRange.max" value={job.salaryRange.max} onChange={handleChange} className="job-detail-item-input-salary"/>
                 </label>
             </div>
 
