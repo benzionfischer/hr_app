@@ -138,67 +138,6 @@ function _createJob() {
     };
 }
 
-const STAGE_KEY = "stageDB";
-
-function _createStages() {
-
-    console.log("Create stages has been run .. ")
-    const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
-    
-    let jobs = loadFromStorage(JOB_KEY);
-    let stages = jobs.map(job => {
-        const numStages = Math.floor(Math.random() * 4) + 1; // Generate between 1 and 5 stages
-
-        const firstStage = {
-            id: makeId(),
-            jobId: job.id,
-            name: "Phone call",
-            type: "CALL",
-            prev: null, // First stage has no previous stage
-        };
-
-        const stages = [firstStage];
-
-        let prevStageId = firstStage.id; // Track previous stage ID
-
-        for (let i = 0; i < numStages; i++) {
-            const newStage = {
-                id: makeId(),
-                jobId: job.id,
-                name: stageNames[i % stageNames.length], // Cycle through predefined names
-                type: "OTHER",
-                prev: prevStageId, // Link to the previous stage
-                next: null
-            };
-            
-            stages[stages.length - 1].next = newStage.id; // Set next for the previous stage
-            
-            stages.push(newStage);
-            prevStageId = newStage.id;
-        }
-
-        const lastStage = {
-            id: makeId(),
-            jobId: job.id,
-            name: "Contract",
-            type: "CONTRACT",
-            prev: prevStageId, // Previous stage links to this last stage
-            next: null // Last stage has no next stage
-        };
-
-        stages[stages.length - 1].next = lastStage.id; // Set next for the previous stage
-        stages.push(lastStage);
-
-        return stages;
-    }).flat();
-
-    saveToStorage(STAGE_KEY, stages);
-}
-
-// verify that it run only if no stages in the storage
-// _createStages()
-
-
 const REVIEWER_KEY = "reviewerDB";
 
 function _createReviewers() {
@@ -225,6 +164,78 @@ function _createReviewers() {
     ]
 
     saveToStorage(REVIEWER_KEY, reviewers);
+    return reviewers
 }
 
-_createReviewers()
+const reviewers = _createReviewers()
+
+
+const STAGE_KEY = "stageDB";
+
+function _createStages() {
+    console.log("Create stages has been run .. ");
+
+    const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
+
+    let jobs = loadFromStorage(JOB_KEY);
+    let stages = jobs.map(job => {
+        const numStages = Math.floor(Math.random() * 4) + 1; // Generate between 1 and 5 stages
+
+        const firstStage = {
+            id: makeId(),
+            jobId: job.id,
+            name: "Phone call",
+            type: "CALL",
+            prev: null, // First stage has no previous stage
+            reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
+        };
+
+        const stages = [firstStage];
+
+        let prevStageId = firstStage.id; // Track previous stage ID
+
+        for (let i = 0; i < numStages; i++) {
+            const newStage = {
+                id: makeId(),
+                jobId: job.id,
+                name: stageNames[i % stageNames.length], // Cycle through predefined names
+                type: "OTHER",
+                prev: prevStageId, // Link to the previous stage
+                next: null,
+                reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
+            };
+
+            stages[stages.length - 1].next = newStage.id; // Set next for the previous stage
+            
+            stages.push(newStage);
+            prevStageId = newStage.id;
+        }
+
+        const lastStage = {
+            id: makeId(),
+            jobId: job.id,
+            name: "Contract",
+            type: "CONTRACT",
+            prev: prevStageId, // Previous stage links to this last stage
+            next: null, // Last stage has no next stage
+            reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
+        };
+
+        stages[stages.length - 1].next = lastStage.id; // Set next for the previous stage
+        stages.push(lastStage);
+
+        return stages;
+    }).flat();
+
+    saveToStorage(STAGE_KEY, stages);
+}
+
+// Helper function to get two random reviewers
+function getRandomReviewers(reviewersPool) {
+    const shuffled = [...reviewersPool].sort(() => 0.5 - Math.random()); // Shuffle array
+    return shuffled.slice(0, 2); // Take first two
+}
+
+
+// verify that it run only if no stages in the storage
+// _createStages()
