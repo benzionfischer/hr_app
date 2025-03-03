@@ -28,7 +28,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: #a9a8a8;
-    border: 5px solid red;
+    border: 5px solid black;
     position: relative;
     display: flex; /* Use flexbox */
     justify-content: center; /* Horizontally center content */
