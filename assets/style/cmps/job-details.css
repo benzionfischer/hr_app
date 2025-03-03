@@ -56,3 +56,11 @@
     width: 25px;
     height: 25px;
 }
+
+.job-detail-item-input {
+    background-color: rgb(228, 177, 144);; /* Light gray background */
+}
+
+.job-detail-item-input::placeholder {
+    color: black; /* Placeholder text color */
+}
