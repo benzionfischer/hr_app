@@ -12,10 +12,7 @@ export function StageDetails({ stage }) {
                              role={stage.reviewers[0].role}
                              icon={stage.reviewers[0].icon}/>
                 <div className="divider"></div>
-                <div>Stage name: {stage.name}</div>
-                <div>Stage description: {stage.description}</div>
-
-                <div className="divider"></div>
-
+                <div className="stage-details-txt">Stage name: {stage.name}</div>
+                <div className="stage-details-txt">Stage description: {stage.description}</div>
             </div>)
 }
