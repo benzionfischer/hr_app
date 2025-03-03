@@ -1,4 +1,4 @@
-import { UserProfile } from "./cmps/UserProfile.jsx"
+import { UserProfile } from "./UserProfile.jsx"
 
 
 export function StageDetails({ stage }) {
