@@ -4,7 +4,7 @@
 
 .job-details-btn {
     position: absolute;
-    right: 0; /* Positions the button to the right edge */
+    right: 0; 
     top: 0;
     background: transparent;
     border: none;

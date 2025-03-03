@@ -175,7 +175,7 @@ const STAGE_KEY = "stageDB";
 function _createStages() {
     console.log("Create stages has been run .. ");
 
-    const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];
+    const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];    
 
     let jobs = loadFromStorage(JOB_KEY);
     let stages = jobs.map(job => {
@@ -186,6 +186,7 @@ function _createStages() {
             jobId: job.id,
             name: "Phone call",
             type: "CALL",
+            description: "The first SE interview assesses technical skills, problem-solving, and cultural fit, often with coding challenges and past project discussions.",
             prev: null, // First stage has no previous stage
             reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
         };
@@ -200,6 +201,7 @@ function _createStages() {
                 jobId: job.id,
                 name: stageNames[i % stageNames.length], // Cycle through predefined names
                 type: "OTHER",
+                description: getRandomInterviewDescription(),
                 prev: prevStageId, // Link to the previous stage
                 next: null,
                 reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
@@ -216,6 +218,7 @@ function _createStages() {
             jobId: job.id,
             name: "Contract",
             type: "CONTRACT",
+            description: "The contract interview reviews terms, expectations, and final hiring details before an offer is signed.",
             prev: prevStageId, // Previous stage links to this last stage
             next: null, // Last stage has no next stage
             reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
@@ -234,6 +237,23 @@ function _createStages() {
 function getRandomReviewers(reviewersPool) {
     const shuffled = [...reviewersPool].sort(() => 0.5 - Math.random()); // Shuffle array
     return shuffled.slice(0, 2); // Take first two
+}
+
+function getRandomInterviewDescription() {
+    const interviewStages = [
+        "Resume Screening: Evaluate candidate's resume for qualifications.",
+        "Phone Interview: Assess basic communication and technical fit.",
+        "Technical Interview: Test coding skills, algorithms, and problem-solving.",
+        "System Design Interview: Evaluate architecture and scalability approaches.",
+        "Behavioral Interview: Gauge cultural fit and interpersonal skills.",
+        "HR Interview: Discuss benefits, salary expectations, and company policies.",
+        "Onsite Interview: Conduct multiple rounds for deeper technical and team fit evaluation.",
+        "Pair Programming Session: Collaborate on a live coding challenge.",
+        "Take-Home Assignment Review: Assess practical coding abilities from submitted work.",
+        "Final Interview: Senior leadership discussion to finalize hiring decisions."
+    ];
+    
+    return interviewStages[Math.floor(Math.random() * interviewStages.length)];
 }
 
 
