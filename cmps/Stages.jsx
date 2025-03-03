@@ -47,7 +47,7 @@ export function Stages({ job }) {
             </div>
             <div className="stages-content">
                 <div className="stages-lst">
-                    <StageChain stages={stages} selectedStage={selectedStage} /> 
+                    <StageChain stages={stages} selectedStage={selectedStage} onSelectStage={setSelectedStage}/> 
                 </div>
                 <StageDetails stage={selectedStage} />
             </div>
