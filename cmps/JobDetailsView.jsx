@@ -29,7 +29,7 @@ export function JobDetailsView({ job }) {
 
             <div className="job-detail-item">
                 <img src="/assets/img/calendar.png" alt="Work Type" />
-                <span>{job.workType}</span>
+                <span>Days in office: {job.daysInOfficeRange.min} - {job.daysInOfficeRange.max}</span>
             </div>
 
             <div className="job-detail-item">
@@ -48,7 +48,7 @@ export function JobDetailsView({ job }) {
             </div>
 
             <div className="job-detail-item">
-                <img src="/assets/img/calendar.png" alt="Relocation" />
+                <img src="/assets/img/globe.png" alt="Relocation" />
                 <span>Relocation: {job.relocation ? "Yes" : "No"}</span>
             </div>
 

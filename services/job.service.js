@@ -117,6 +117,13 @@ function _createJob() {
         "We are hiring a data scientist to develop advanced machine learning models for our growing business.",
         "Looking for a UX designer to create intuitive and user-friendly digital experiences."
     ];
+
+    const daysInOfficeRange = [
+        { min: 1, max: 3 },
+        { min: 2, max: 5 },
+        { min: 3, max: 4 },
+        { min: 4, max: 5 }
+    ];
     
     const randomIndex = (arr) => arr[Math.floor(Math.random() * arr.length)];
     
@@ -134,6 +141,7 @@ function _createJob() {
         relocation: Math.random() > 0.5,
         salaryRange: randomIndex(salaryRanges),
         description: randomIndex(descriptions),
+        daysInOfficeRange: randomIndex(daysInOfficeRange),
         companyId: 1 //Hard coded companyId For MVP
     };
 }

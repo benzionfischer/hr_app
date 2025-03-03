@@ -16,24 +16,24 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
                 <img src="/assets/img/light.png" alt="Skills" />
                 <label><input type="text" name="skills" value={job.skills} onChange={handleChange} placeholder="Knowledge..." className="job-detail-item-input" /></label>
             </div>
-{/* 
+
             <div className="job-detail-item">
                 <img src="/assets/img/calendar.png" alt="Work Type" />
                 <label>Days at office:
-                    <input type="number" name="officeDays.min" value={job.officeDays.min} onChange={handleChange} className="job-detail-item-input"/> -
-                    <input type="number" name="officeDays.max" value={job.officeDays.max} onChange={handleChange} className="job-detail-item-input"/>
+                    <input type="number" name="officeDays.min" value={job.daysInOfficeRange.min} onChange={handleChange} className="job-detail-item-input"/> -
+                    <input type="number" name="officeDays.max" value={job.daysInOfficeRange.max} onChange={handleChange} className="job-detail-item-input"/>
                 </label>
-            </div> */}
+            </div>
 
             <div className="job-detail-item">
                 <img src="/assets/img/location.png" alt="Location" />
                 <label>Location: <input type="text" name="location" value={job.location} onChange={handleChange} className="job-detail-item-input"/></label>
             </div>
 
-            <div className="job-detail-item">
+            {/* <div className="job-detail-item">
                 <img src="/assets/img/clock.png" alt="Job Type" />
                 <label>Job Type: <input type="text" name="jobType" value={job.jobType} onChange={handleChange} className="job-detail-item-input"/></label>
-            </div>
+            </div> */}
 
             <div className="job-detail-item">
                 <img src="/assets/img/education.png" alt="Degree" />
