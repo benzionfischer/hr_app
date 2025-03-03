@@ -4,13 +4,13 @@ import { UserProfile } from "./UserProfile.jsx"
 import { StageChain } from "./StageChain.jsx"
 import { StageDetails } from "./StageDetails.jsx"
 
-
 const { useEffect, useState } = React
 
 export function Stages({ job }) {
 
     const [stages, setStages] = useState([])
     const [reviewers, setReviewers] = useState([])
+    const [selectedStage, setSelectedStage] = useState(null) // New state for selected stage
 
     useEffect(() => {
         loadStages()
@@ -18,8 +18,13 @@ export function Stages({ job }) {
     }, [])
 
     function loadStages() {
-        stageService.query({ jobId: job.id})
-            .then(setStages)
+        stageService.query({ jobId: job.id })
+            .then(fetchedStages => {
+                setStages(fetchedStages)
+                if (fetchedStages.length > 0) {
+                    setSelectedStage(fetchedStages[0]) // Initialize selectedStage with the first stage
+                }
+            })
             .catch(err => {
                 console.log('Problems getting stages:', err)
             })
@@ -33,19 +38,18 @@ export function Stages({ job }) {
             })
     }
 
-
     return (
         <article className="stages">
             <div className="stages-reviewers">   
                 {reviewers.map((reviewer, index) => (
-                    <UserProfile name={reviewer.name} role={reviewer.role} icon={reviewer.icon}/>
+                    <UserProfile key={index} name={reviewer.name} role={reviewer.role} icon={reviewer.icon}/>
                 ))}
             </div>
             <div className="stages-content">
                 <div className="stages-lst">
-                    <StageChain stages={stages}/>
+                    <StageChain stages={stages} selectedStage={selectedStage} /> 
                 </div>
-                <StageDetails stage={stages[0]}/>
+                <StageDetails stage={selectedStage} />
             </div>
         </article>
     )

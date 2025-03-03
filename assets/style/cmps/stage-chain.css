@@ -23,6 +23,26 @@
     object-fit: cover; /* Ensure the image maintains aspect ratio while filling the circle */
 }
 
+.selected-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #a9a8a8;
+    border: 5px solid red;
+    position: relative;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    font-size: 18px; /* Adjust font size for index */
+    color: white; /* Set text color */
+}
+
+.selected-circle img {
+    width: 65%; /* Make the image fill the circle */
+    height: 65%; /* Make the image fill the circle */
+    object-fit: cover; /* Ensure the image maintains aspect ratio while filling the circle */
+}
+
 
 .line {
     width: 30px; /* Adjust length */

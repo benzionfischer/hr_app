@@ -1,6 +1,7 @@
 const { useEffect, useState } = React;
 
-export function StageChain({ stages }) {
+export function StageChain({ stages, selectedStage }) {
+
 
     const renderCircleContent = (index) => {
         if (index === 0) {
@@ -12,17 +13,25 @@ export function StageChain({ stages }) {
         return index;
     };
 
+    if (!stages || !Array.isArray(stages) || stages.length === 0) {
+        return <div>Loading stages...</div>;
+    }
+
+    if (!selectedStage || typeof selectedStage !== "object" || !selectedStage.id) {
+        return <div>No selected stage</div>;
+    }
+    
     return (
         <div className="circle-chain">
-            {stages.map((_, index) => (
-                <React.Fragment key={index}>
-                    <div className="circle">
+            {stages.map((stage, index) => (
+                <React.Fragment key={stage.id || index}>
+                    <div className={stage.id === selectedStage.id ? "selected-circle" : "circle"}>
                         {renderCircleContent(index)}
                     </div>
                     {index < stages.length - 1 && <div className="line"></div>} {/* Add line except after the last circle */}
                 </React.Fragment>
             ))}
-            
+
             <div className="button-container">
                 <button className="circle-button">
                     <img src="assets/img/add.png" alt="Icon 1" />
@@ -31,7 +40,6 @@ export function StageChain({ stages }) {
                     <img src="assets/img/garbage.png" alt="Icon 2" />
                 </button>
             </div>
-            
         </div>
     );
 }
