@@ -1,6 +1,6 @@
 const { useEffect, useState } = React;
 
-export function StageChain({ stages, selectedStage, onSelectStage }) {
+export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage }) {
 
     const renderCircleContent = (index) => {
         if (index === 0) {
@@ -26,20 +26,24 @@ export function StageChain({ stages, selectedStage, onSelectStage }) {
                 <React.Fragment key={stage.id || index}>
                     <button 
                         className={stage.id === selectedStage.id ? "selected-circle" : "circle"}
-                        onClick={() => onSelectStage(stage)} // Handle click event
+                        onClick={() => onSelectStage(stage)} // Select stage on click
                     >
                         {renderCircleContent(index)}
                     </button>
-                    {index < stages.length - 1 && <div className="line"></div>} {/* Add line except after the last circle */}
+                    {index < stages.length - 1 && <div className="line"></div>} {/* Line between circles */}
                 </React.Fragment>
             ))}
 
             <div className="button-container">
                 <button className="circle-button">
-                    <img src="assets/img/add.png" alt="Icon 1" />
+                    <img src="assets/img/add.png" alt="Add Stage" />
                 </button>
-                <button className="circle-button">
-                    <img src="assets/img/garbage.png" alt="Icon 2" />
+                <button 
+                    className="circle-button"
+                    onClick={() => onRemoveStage(selectedStage.id)} // Remove the selected stage
+                    disabled={!selectedStage} // Prevents errors if no stage is selected
+                >
+                    <img src="assets/img/garbage.png" alt="Remove Stage" />
                 </button>
             </div>
         </div>

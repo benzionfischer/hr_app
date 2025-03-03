@@ -38,6 +38,22 @@ export function Stages({ job }) {
             })
     }
 
+    function onRemoveStage(stageId) {
+        stageService.remove(stageId)
+            .then(() => {
+                setStages(prevStages => {
+                    const updatedStages = prevStages.filter(stage => stage.id !== stageId)
+                    if (selectedStage && selectedStage.id === stageId) {
+                        setSelectedStage(updatedStages.length > 0 ? updatedStages[0] : null) // Select first available stage or null
+                    }
+                    return updatedStages
+                })
+            })
+            .catch(err => {
+                console.log('Error removing stage:', err)
+            })
+    }
+
     return (
         <article className="stages">
             <div className="stages-reviewers">   
@@ -47,7 +63,10 @@ export function Stages({ job }) {
             </div>
             <div className="stages-content">
                 <div className="stages-lst">
-                    <StageChain stages={stages} selectedStage={selectedStage} onSelectStage={setSelectedStage}/> 
+                    <StageChain stages={stages}
+                                selectedStage={selectedStage} 
+                                onSelectStage={setSelectedStage} 
+                                onRemoveStage={onRemoveStage}/> 
                 </div>
                 <StageDetails stage={selectedStage} />
             </div>
