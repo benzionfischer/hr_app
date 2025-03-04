@@ -60,7 +60,8 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
 
             <div className="job-detail-description">
                 <img src="/assets/img/information.png" alt="Description" />
-                <label>Description: <textarea name="description" value={job.description} onChange={handleChange} className="job-detail-item-input"/></label>
+                <div>Description:</div>
+                <label><textarea name="description" value={job.description} onChange={handleChange} className="job-detail-item-input"/></label>
             </div>
 
             <button type="submit">Save</button> 
