@@ -56,7 +56,7 @@ function getEmptyJob(title = '', description = ' ') {
         degree: "",
         daysInOfficeRange: {min: 0, max:0},
         relocation: false, // Default to false
-        salaryRange: "",
+        salaryRange: {min: 0, max:0},
         description: "",
         companyId: 1 // Null to indicate no company assigned
     }
