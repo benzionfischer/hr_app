@@ -91,19 +91,20 @@ function _createJob() {
     const titles = ["Product Manager", "Software Engineer", "Data Scientist", "UX Designer"];
     const fields = ["Cyber Security", "Healthcare", "Finance", "E-commerce"];
     const skillsList = [
-        ["Python (High)", "C# (High)", "AI (High)", "Salesforce (Mid)"],
-        ["JavaScript (High)", "React (High)", "Node.js (Mid)", "MongoDB (Mid)"],
-        ["Python (High)", "Machine Learning (High)", "TensorFlow (Mid)", "SQL (Mid)"],
-        ["Figma (High)", "Adobe XD (High)", "CSS (Mid)", "HTML (Mid)"]
+        ["Python (High), C# (High), AI (High), Salesforce (Mid)"],
+        ["JavaScript (High), React (High), Node.js (Mid), MongoDB (Mid)"],
+        ["Python (High), Machine Learning (High), TensorFlow (Mid), SQL (Mid)"],
+        ["Figma (High), Adobe XD (High), CSS (Mid), HTML (Mid)"]
     ];
     const workTypes = ["Hybrid 3/5", "Remote", "On-Site"];
     const locations = ["Israel, Center", "USA, California", "Germany, Berlin", "UK, London"];
     const languagesList = [
-        { Hebrew: "Native", English: "High", Russian: "Mid", Italian: "Low" },
-        { English: "Native", Spanish: "High", French: "Mid", German: "Low" },
-        { German: "Native", English: "High", Dutch: "Mid", Swedish: "Low" },
-        { French: "Native", English: "High", Italian: "Mid", Spanish: "Low" }
+        ["Hebrew (Native), English (High), Russian (Mid), Italian (Low)"],
+        ["English (Native), Spanish (High), French (Mid), German (Low)"],
+        ["German (Native), English (High), Dutch (Mid), Swedish (Low)"],
+        ["French (Native), English (High), Italian (Mid), Spanish (Low)"]
     ];
+    
     const degrees = ["Bachelor's Degree - University", "Master's Degree - University", "PhD - University"];
     const salaryRanges = [
         { min: 14000, max: 22000 },

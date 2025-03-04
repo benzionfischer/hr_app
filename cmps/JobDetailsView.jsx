@@ -11,6 +11,10 @@ export function JobDetailsView({ job }) {
 
     console.log("JobDetailsView: " + JSON.stringify(job))
 
+    console.log("skills: " + JSON.stringify(job.skills))
+    console.log("languages: " + JSON.stringify(job.languages))
+
+
     return (
         <section className="job-details-view">
 
@@ -37,6 +41,11 @@ export function JobDetailsView({ job }) {
             <div className="job-detail-item">
                 <img src="/assets/img/location.png" alt="Location" />
                 <span>{job.location}</span>
+            </div>
+
+            <div className="job-detail-item">
+                <img src="/assets/img/chat.png" alt="Skills" />
+                <span>{job.languages}</span>
             </div>
 
             {/* <div className="job-detail-item">
