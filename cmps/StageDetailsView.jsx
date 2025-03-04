@@ -1,7 +1,7 @@
 import { UserProfile } from "./UserProfile.jsx"
 
 
-export function StageDetails({ stage }) {
+export function StageDetailsView({ stage }) {
 
     if (!stage || Object.keys(stage).length === 0) {
         return <div>Loading...</div>;

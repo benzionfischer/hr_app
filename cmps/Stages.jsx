@@ -2,7 +2,8 @@ import { stageService } from "../services/stage.service.js"
 import { reviewerService } from "../services/reviewer.service.js"
 import { UserProfile } from "./UserProfile.jsx"
 import { StageChain } from "./StageChain.jsx"
-import { StageDetails } from "./StageDetails.jsx"
+import { StageDetailsView } from "./StageDetailsView.jsx"
+import { StageDetailsEdit } from "./StageDetailsEdit.jsx"
 
 const { useEffect, useState } = React
 
@@ -11,6 +12,7 @@ export function Stages({ job }) {
     const [stages, setStages] = useState([])
     const [reviewers, setReviewers] = useState([])
     const [selectedStage, setSelectedStage] = useState(null) // New state for selected stage
+    const [isViewMode, setIsViewMode] = useState(true)
 
     useEffect(() => {
         loadStages()
@@ -72,12 +74,15 @@ export function Stages({ job }) {
             
                     setStages(newStages)
                     setSelectedStage(newStage)
+                    setIsViewMode(false)
                 })
     }
 
     // Save the new stage in DB
     function onSaveStage() {
 
+
+        setIsViewMode(true)
     }
 
     return (
@@ -96,7 +101,9 @@ export function Stages({ job }) {
                                 onAddStage={onAddStage}
                                 onSaveStage={onSaveStage}/> 
                 </div>
-                <StageDetails stage={selectedStage} />
+                { isViewMode && <StageDetailsView stage={selectedStage} />}
+                { !isViewMode && <StageDetailsEdit stage={selectedStage} />}
+
             </div>
         </article>
     )
