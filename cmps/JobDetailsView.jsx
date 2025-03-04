@@ -28,7 +28,7 @@ export function JobDetailsView({ job }) {
             </div>
 
             <div className="job-detail-item">
-                <img src="/assets/img/calendar.png" alt="Work Type" />
+                <img src="/assets/img/clock.png" alt="Work Type" />
                 <span>Days in office: {job.daysInOfficeRange.min} - {job.daysInOfficeRange.max}</span>
             </div>
 
@@ -37,10 +37,10 @@ export function JobDetailsView({ job }) {
                 <span>{job.location}</span>
             </div>
 
-            <div className="job-detail-item">
+            {/* <div className="job-detail-item">
                 <img src="/assets/img/clock.png" alt="Job Type" />
                 <span>{job.jobType}</span>
-            </div>
+            </div> */}
 
             <div className="job-detail-item">
                 <img src="/assets/img/education.png" alt="Degree" />

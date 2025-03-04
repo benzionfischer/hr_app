@@ -18,7 +18,7 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             </div>
 
             <div className="job-detail-item">
-                <img src="/assets/img/calendar.png" alt="Work Type" />
+                <img src="/assets/img/clock.png" alt="Work Type" />
                 <label>Days at office:
                     <input type="number" name="officeDays.min" value={job.daysInOfficeRange.min} onChange={handleChange} className="job-detail-item-input"/> -
                     <input type="number" name="officeDays.max" value={job.daysInOfficeRange.max} onChange={handleChange} className="job-detail-item-input"/>

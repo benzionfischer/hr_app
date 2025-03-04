@@ -103,7 +103,6 @@ function _createJob() {
         { German: "Native", English: "High", Dutch: "Mid", Swedish: "Low" },
         { French: "Native", English: "High", Italian: "Mid", Spanish: "Low" }
     ];
-    const jobTypes = ["Full-Time Job", "Part-Time Job", "Contract"];
     const degrees = ["Bachelor's Degree - University", "Master's Degree - University", "PhD - University"];
     const salaryRanges = [
         { min: 14000, max: 22000 },
@@ -122,7 +121,7 @@ function _createJob() {
         { min: 1, max: 3 },
         { min: 2, max: 5 },
         { min: 3, max: 4 },
-        { min: 4, max: 5 }
+        { min: 5, max: 5 }
     ];
     
     const randomIndex = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -136,7 +135,6 @@ function _createJob() {
         workType: randomIndex(workTypes),
         location: randomIndex(locations),
         languages: randomIndex(languagesList),
-        jobType: randomIndex(jobTypes),
         degree: randomIndex(degrees),
         relocation: Math.random() > 0.5,
         salaryRange: randomIndex(salaryRanges),
