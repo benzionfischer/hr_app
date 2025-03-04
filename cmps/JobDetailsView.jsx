@@ -57,10 +57,14 @@ export function JobDetailsView({ job }) {
                 <span>Salary Range: {job.salaryRange.min} - {job.salaryRange.max}</span>
             </div>
 
-            <div className="job-detail-description">
-                <img src="/assets/img/information.png" alt="Description" />
-                <span>{job.description}</span>
+            <div>
+                <div className="job-detail-description">
+                    <img src="/assets/img/information.png" alt="Description" />
+                    <h1>Job Description</h1><br/>
+                </div>
+                <div className="padding-left">{job.description}</div>
             </div>
+
         </section>);
 }
 

@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 4%;
+    /* padding: 10px 4%; */
 }
 
 .job-details-edit-button {
@@ -70,4 +70,8 @@
 
 .job-detail-item-input::placeholder {
     color: black; /* Placeholder text color */
+}
+
+.padding-left {
+    padding-left: 40px;
 }
