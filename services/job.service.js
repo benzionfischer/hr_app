@@ -54,6 +54,7 @@ function getEmptyJob(title = '', description = ' ') {
         languages: [],
         jobType: "",
         degree: "",
+        daysInOfficeRange: {min: 0, max:0},
         relocation: false, // Default to false
         salaryRange: "",
         description: "",

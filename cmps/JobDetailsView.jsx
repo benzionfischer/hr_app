@@ -9,6 +9,8 @@ const { useEffect, useState } = React;
 // mode: ["view", "edit"]
 export function JobDetailsView({ job }) {
 
+    console.log("JobDetailsView: " + JSON.stringify(job))
+
     return (
         <section className="job-details-view">
 
@@ -52,10 +54,10 @@ export function JobDetailsView({ job }) {
                 <span>Relocation: {job.relocation ? "Yes" : "No"}</span>
             </div>
 
-            <div className="job-detail-item">
+            {/* <div className="job-detail-item">
                 <img src="/assets/img/money.png" alt="Salary" />
                 <span>Salary Range: {job.salaryRange.min} - {job.salaryRange.max}</span>
-            </div>
+            </div> */}
 
             <div>
                 <div className="job-detail-description">

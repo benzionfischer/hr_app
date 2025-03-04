@@ -2,6 +2,7 @@ import { jobService } from "../services/job.service.js"
 import { JobInfoHeader } from "../cmps/JobInfoHeader.jsx"
 import { Stages } from "../cmps/Stages.jsx"
 import { JobDetails } from "../cmps/JobDetails.jsx"
+import { companyService } from "../services/company.service.js"
 
 
 
@@ -22,7 +23,11 @@ export function JobInfo() {
 
     function loadJob() {
         if (!params.jobId) {
-            setJob(jobService.getEmptyJob())
+            const emptyJob = jobService.getEmptyJob()
+            companyService.get(emptyJob.companyId).then(company => {
+                emptyJob.location = company.location
+                setJob(emptyJob)
+            } )
             return
         }
 
