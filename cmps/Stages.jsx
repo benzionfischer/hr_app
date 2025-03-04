@@ -54,6 +54,32 @@ export function Stages({ job }) {
             })
     }
 
+    // Add stage to the state list (not actually to DB)
+    function onAddStage() {
+        console.log("onAddStage ..")
+
+        reviewerService.query()
+                .then(reviewers => {
+                    const reviewer = reviewers[0]
+                    const newStage = stageService.getEmptyStage()
+                    newStage.reviewers = [reviewer]
+            
+                    const newStages = [
+                        ...stages.slice(0, stages.length - 1), // Copy all elements except the last one
+                        newStage,                           // Insert the new element
+                        stages[stages.length - 1]             // Add the last element back
+                    ];
+            
+                    setStages(newStages)
+                    setSelectedStage(newStage)
+                })
+    }
+
+    // Save the new stage in DB
+    function onSaveStage() {
+
+    }
+
     return (
         <article className="stages">
             <div className="stages-reviewers">   
@@ -66,7 +92,9 @@ export function Stages({ job }) {
                     <StageChain stages={stages}
                                 selectedStage={selectedStage} 
                                 onSelectStage={setSelectedStage} 
-                                onRemoveStage={onRemoveStage}/> 
+                                onRemoveStage={onRemoveStage}
+                                onAddStage={onAddStage}
+                                onSaveStage={onSaveStage}/> 
                 </div>
                 <StageDetails stage={selectedStage} />
             </div>

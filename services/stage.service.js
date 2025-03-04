@@ -9,7 +9,8 @@ export const stageService = {
     remove,
     save,
     getDefaultFilter,
-    getFilterFromSrcParams
+    getFilterFromSrcParams,
+    getEmptyStage
 }
 
 function query(filterBy = {}) {
@@ -22,6 +23,19 @@ function query(filterBy = {}) {
             }
             return stages
         })
+}
+
+function getEmptyStage(jobId) {
+    return {                
+            id: makeId(),
+            jobId: jobId,
+            name: "",
+            type: "",
+            description: "",
+            prev: null,
+            next: null,
+            reviewers: []
+        }
 }
 
 function get(stageId) {
