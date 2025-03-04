@@ -34,11 +34,6 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
                 <img src="/assets/img/chat.png" alt="Languages" />
                 <label>Languages: <input type="text" name="languages" value={job.languages} onChange={handleChange} className="job-detail-item-input"/></label>
             </div>
-            
-            {/* <div className="job-detail-item">
-                <img src="/assets/img/clock.png" alt="Job Type" />
-                <label>Job Type: <input type="text" name="jobType" value={job.jobType} onChange={handleChange} className="job-detail-item-input"/></label>
-            </div> */}
 
             <div className="job-detail-item">
                 <img src="/assets/img/education.png" alt="Degree" />

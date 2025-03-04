@@ -9,11 +9,7 @@ const { useEffect, useState } = React;
 // mode: ["view", "edit"]
 export function JobDetailsView({ job }) {
 
-    console.log("JobDetailsView: " + JSON.stringify(job))
-
-    console.log("skills: " + JSON.stringify(job.skills))
-    console.log("languages: " + JSON.stringify(job.languages))
-
+    console.log("JobDetailsView: " + JSON.stringify(job.relocation))
 
     return (
         <section className="job-details-view">
@@ -48,11 +44,6 @@ export function JobDetailsView({ job }) {
                 <span>{job.languages}</span>
             </div>
 
-            {/* <div className="job-detail-item">
-                <img src="/assets/img/clock.png" alt="Job Type" />
-                <span>{job.jobType}</span>
-            </div> */}
-
             <div className="job-detail-item">
                 <img src="/assets/img/education.png" alt="Degree" />
                 <span>{job.degree}</span>
@@ -60,7 +51,7 @@ export function JobDetailsView({ job }) {
 
             <div className="job-detail-item">
                 <img src="/assets/img/globe.png" alt="Relocation" />
-                <span>Relocation: {job.relocation ? "Yes" : "No"}</span>
+                <span>Relocation: {job.relocation === "true" ? "Yes" : "No"}</span>
             </div>
 
             <div className="job-detail-item">
