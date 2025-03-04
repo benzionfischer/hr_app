@@ -181,6 +181,10 @@ const reviewers = _createReviewers()
 const STAGE_KEY = "stageDB";
 
 function _createStages() {
+
+    if (localStorage.getItem(STAGE_KEY) != null)
+        return
+
     console.log("Create stages has been run .. ");
 
     const stageNames = ["Application Review", "Phone Screen", "Technical Interview", "HR Interview", "Offer", "Onboarding"];    
@@ -266,4 +270,4 @@ function getRandomInterviewDescription() {
 
 
 // verify that it run only if no stages in the storage
-// _createStages()
+_createStages()
