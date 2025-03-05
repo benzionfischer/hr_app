@@ -18,11 +18,20 @@ export function Stages({ job }) {
         loadStages()
         loadReviewers()
     }, [])
-
+    
     function loadStages() {
+
+        function sort(_stages) {
+            return _stages.sort((a, b) => {
+                if (a.index === null) return 1;  // Push `null` to the end
+                if (b.index === null) return -1; // Push `null` to the end
+                return a.index - b.index;        // Normal sorting
+            });
+        }
+
         stageService.query({ jobId: job.id })
             .then(fetchedStages => {
-                setStages(fetchedStages)
+                setStages([...sort(fetchedStages)])
                 if (fetchedStages.length > 0) {
                     setSelectedStage(fetchedStages[0]) // Initialize selectedStage with the first stage
                 }
@@ -63,7 +72,7 @@ export function Stages({ job }) {
         reviewerService.query()
                 .then(reviewers => {
                     const reviewer = reviewers[0]
-                    const newStage = stageService.getEmptyStage()
+                    const newStage = stageService.getEmptyStage(job.id)
                     newStage.reviewers = [reviewer]
             
                     const newStages = [
@@ -75,16 +84,55 @@ export function Stages({ job }) {
                     setStages(newStages)
                     setSelectedStage(newStage)
                     setIsViewMode(false)
+                    return newStage
                 })
     }
 
     // Save the new stage in DB
-    function onSaveStage() {
+    function onSaveStage(stage) {
 
 
+        console.log("onSaveStage: stage.index: " + stage.index)
+
+        let sortedStages = stages.sort((a, b) => {
+            if (a.index === null) return 1;  // Push `null` to the end
+            if (b.index === null) return -1; // Push `null` to the end
+            return a.index - b.index;        // Normal sorting
+        });
+
+        console.log("SORTED: " + JSON.stringify(sortedStages))
+
+
+        function lastStage(_stages) {
+            return _stages[_stages.length-1]
+        }
+
+        let _lastStage = lastStage(sortedStages)
+
+
+        console.log("stage.index= " + stage.index)
+        console.log("_lastStage.index= " + _lastStage.index)
+
+        let newStage = { ...stage }
+        newStage.id = null
+
+        newStage.index = _lastStage.index
+
+        console.log("newStage.index: " + newStage.index)
+        _lastStage.index += 1  
+
+        stageService.save(newStage)
+            .then(_stage => {
+                stageService.save(_lastStage)
+                loadStages()
+            })
+        
         setIsViewMode(true)
     }
 
+    stages.forEach(stage => console.log("id: " + stage.id + ", prev: " + stage.prev + ", next:" + stage.next))
+
+    console.log("SELECTED: "+ JSON.stringify(selectedStage))
     return (
         <article className="stages">
             <div className="stages-reviewers">   
@@ -102,7 +150,7 @@ export function Stages({ job }) {
                                 onSaveStage={onSaveStage}/> 
                 </div>
                 { isViewMode && <StageDetailsView stage={selectedStage} />}
-                { !isViewMode && <StageDetailsEdit stage={selectedStage} />}
+                { !isViewMode && <StageDetailsEdit stage={selectedStage} onSave={onSaveStage}/>}
 
             </div>
         </article>

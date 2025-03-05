@@ -181,9 +181,7 @@ const reviewers = _createReviewers()
 const STAGE_KEY = "stageDB";
 
 function _createStages() {
-
-    if (localStorage.getItem(STAGE_KEY) != null)
-        return
+    if (localStorage.getItem(STAGE_KEY) != null) return;
 
     console.log("Create stages has been run .. ");
 
@@ -193,8 +191,10 @@ function _createStages() {
     let stages = jobs.map(job => {
         const numStages = Math.floor(Math.random() * 4) + 1; // Generate between 1 and 5 stages
 
+        let index = 0;
         const firstStage = {
             id: makeId(),
+            index: index++,
             jobId: job.id,
             name: "Phone call",
             type: "CALL",
@@ -204,46 +204,41 @@ function _createStages() {
         };
 
         const stages = [firstStage];
-
         let prevStageId = firstStage.id; // Track previous stage ID
 
         for (let i = 0; i < numStages; i++) {
             const newStage = {
                 id: makeId(),
+                index: index++, // Increment index correctly
                 jobId: job.id,
                 name: stageNames[i % stageNames.length], // Cycle through predefined names
                 type: "OTHER",
                 description: getRandomInterviewDescription(),
-                prev: prevStageId, // Link to the previous stage
-                next: null,
                 reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
             };
 
-            stages[stages.length - 1].next = newStage.id; // Set next for the previous stage
-            
             stages.push(newStage);
             prevStageId = newStage.id;
         }
 
         const lastStage = {
             id: makeId(),
+            index: index++, // Increment index for last stage
             jobId: job.id,
             name: "Contract",
             type: "CONTRACT",
             description: "The contract interview reviews terms, expectations, and final hiring details before an offer is signed.",
             prev: prevStageId, // Previous stage links to this last stage
-            next: null, // Last stage has no next stage
             reviewers: getRandomReviewers(reviewers) // Assign 2 random reviewers
         };
 
-        stages[stages.length - 1].next = lastStage.id; // Set next for the previous stage
         stages.push(lastStage);
-
         return stages;
     }).flat();
 
     saveToStorage(STAGE_KEY, stages);
 }
+
 
 // Helper function to get two random reviewers
 function getRandomReviewers(reviewersPool) {

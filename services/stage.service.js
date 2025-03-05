@@ -32,8 +32,7 @@ function getEmptyStage(jobId) {
             name: "",
             type: "",
             description: "",
-            prev: null,
-            next: null,
+            index: -1,
             reviewers: []
         }
 }
