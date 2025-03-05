@@ -91,17 +91,11 @@ export function Stages({ job }) {
     // Save the new stage in DB
     function onSaveStage(stage) {
 
-
-        console.log("onSaveStage: stage.index: " + stage.index)
-
         let sortedStages = stages.sort((a, b) => {
             if (a.index === null) return 1;  // Push `null` to the end
             if (b.index === null) return -1; // Push `null` to the end
             return a.index - b.index;        // Normal sorting
         });
-
-        console.log("SORTED: " + JSON.stringify(sortedStages))
-
 
         function lastStage(_stages) {
             return _stages[_stages.length-1]
@@ -109,30 +103,21 @@ export function Stages({ job }) {
 
         let _lastStage = lastStage(sortedStages)
 
-
-        console.log("stage.index= " + stage.index)
-        console.log("_lastStage.index= " + _lastStage.index)
-
         let newStage = { ...stage }
         newStage.id = null
 
         newStage.index = _lastStage.index
 
-        console.log("newStage.index: " + newStage.index)
         _lastStage.index += 1  
 
         stageService.save(newStage)
             .then(_stage => {
-                stageService.save(_lastStage)
-                loadStages()
+                stageService.save(_lastStage).then(() => loadStages())
             })
         
         setIsViewMode(true)
     }
 
-    stages.forEach(stage => console.log("id: " + stage.id + ", prev: " + stage.prev + ", next:" + stage.next))
-
-    console.log("SELECTED: "+ JSON.stringify(selectedStage))
     return (
         <article className="stages">
             <div className="stages-reviewers">   
