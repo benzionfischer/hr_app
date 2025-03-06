@@ -5,7 +5,7 @@ import { UserProfile } from "./UserProfile.jsx"
 export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
     const [stageName, setStageName] = useState(stage.name || "");
     const [description, setDescription] = useState(stage.description || "");
-    const [selectedReviewer, setSelectedReviewer] = useState(null);
+    const [selectedReviewer, setSelectedReviewer] = useState(stage.reviewers[0]);
 
     const handleSave = () => {
         const newStage = {

@@ -118,6 +118,11 @@ export function Stages({ job }) {
         setIsViewMode(true)
     }
 
+
+    function onEditStage(stage) {
+        setIsViewMode(false)
+    }
+
     return (
         <article className="stages">
             <div className="stages-reviewers">   
@@ -132,7 +137,9 @@ export function Stages({ job }) {
                                 onSelectStage={setSelectedStage} 
                                 onRemoveStage={onRemoveStage}
                                 onAddStage={onAddStage}
-                                onSaveStage={onSaveStage}/> 
+                                onSaveStage={onSaveStage}
+                                onEditStage={onEditStage}
+                                /> 
                 </div>
                 { isViewMode && <StageDetailsView stage={selectedStage} />}
                 { !isViewMode && <StageDetailsEdit stage={selectedStage} onSave={onSaveStage} reviewers={reviewers} />}

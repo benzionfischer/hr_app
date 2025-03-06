@@ -7,6 +7,8 @@ export function StageDetailsView({ stage }) {
         return <div>Loading...</div>;
     }
 
+    console.log("StageDetailsView(A): " + JSON.stringify(stage))
+    console.log("StageDetailsView(B): " + JSON.stringify(stage.reviewers[0]))
     return (<div className="stage-details">
                 <UserProfile name={stage.reviewers[0].name}
                              role={stage.reviewers[0].role}
