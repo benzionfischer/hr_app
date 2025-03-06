@@ -119,7 +119,7 @@ export function Stages({ job }) {
     }
 
 
-    function onEditStage(stage) {
+    function onClickEdit(stage) {
         setIsViewMode(false)
     }
 
@@ -138,7 +138,7 @@ export function Stages({ job }) {
                                 onRemoveStage={onRemoveStage}
                                 onAddStage={onAddStage}
                                 onSaveStage={onSaveStage}
-                                onEditStage={onEditStage}
+                                onClickEdit={onClickEdit}
                                 /> 
                 </div>
                 { isViewMode && <StageDetailsView stage={selectedStage} />}

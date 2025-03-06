@@ -1,6 +1,6 @@
 const { useEffect, useState } = React;
 
-export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage, onAddStage, onSaveStage, onEditStage }) {
+export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage, onAddStage, onSaveStage, onClickEdit }) {
 
     const renderCircleContent = (index) => {
         if (index === 0) {
@@ -38,7 +38,7 @@ export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage
                 <button className="circle-button" onClick={onAddStage}>
                     <img src="assets/img/add.png" alt="Add Stage" />
                 </button>
-                <button className="circle-button" onClick={onEditStage}>
+                <button className="circle-button" onClick={onClickEdit}>
                     <img src="assets/img/edit.png" alt="Edit Stage" />
                 </button>
                 <button 
