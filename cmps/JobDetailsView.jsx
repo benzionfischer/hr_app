@@ -27,47 +27,47 @@ export function JobDetailsView({ job }) {
 
             <div className="job-detail-item">
                 <input type="checkbox" />
-                <img src="/assets/img/clock.png" alt="Work Type" />
+                <img src="assets/img/clock.png" alt="Work Type" />
                 <span>Days in office: {job.daysInOfficeRange.min} - {job.daysInOfficeRange.max}</span>
             </div>
 
             <div className="job-detail-item">
                 <input type="checkbox" />
-                <img src="/assets/img/location.png" alt="Location" />
+                <img src="assets/img/location.png" alt="Location" />
                 <span>{job.location}</span>
             </div>
 
             <div className="job-detail-item">
                 <input type="checkbox" />
 
-                <img src="/assets/img/chat.png" alt="Skills" />
+                <img src="assets/img/chat.png" alt="Skills" />
                 <span>{job.languages}</span>
             </div>
 
             <div className="job-detail-item">
                 <input type="checkbox" />
 
-                <img src="/assets/img/education.png" alt="Degree" />
+                <img src="assets/img/education.png" alt="Degree" />
                 <span>{job.degree}</span>
             </div>
 
             <div className="job-detail-item">
                 <input type="checkbox" />
 
-                <img src="/assets/img/globe.png" alt="Relocation" />
+                <img src="assets/img/globe.png" alt="Relocation" />
                 <span>Relocation: {job.relocation === "true" ? "Yes" : "No"}</span>
             </div>
 
             <div className="job-detail-item">
                 <input type="checkbox" />
 
-                <img src="/assets/img/money.png" alt="Salary" />
+                <img src="assets/img/money.png" alt="Salary" />
                 <span>Salary Range: {job.salaryRange.min} - {job.salaryRange.max}</span>
             </div>
 
             <div>
                 <div className="job-detail-description">
-                    <img src="/assets/img/information.png" alt="Description" />
+                    <img src="assets/img/information.png" alt="Description" />
                     <h1>Job Description</h1><br />
                 </div>
                 <div className="padding-left">{job.description}</div>
