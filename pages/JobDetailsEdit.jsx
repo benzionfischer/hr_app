@@ -8,16 +8,19 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/calendar.png" alt="Experience" />
                 <label>Experience: <input type="number" name="experience" value={job.experience} onChange={handleChange}  className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/light.png" alt="Skills" />
                 <label><input type="text" name="skills" value={job.skills} onChange={handleChange} placeholder="Knowledge..." className="job-detail-item-input" /></label>
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/clock.png" alt="Work Type" />
                 <label>Days at office:
                     <input type="number" name="officeDays.min" value={job.daysInOfficeRange.min} onChange={handleChange} className="job-detail-item-input"/> -
@@ -26,21 +29,25 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/location.png" alt="Location" />
                 <label>Location: <input type="text" name="location" value={job.location} onChange={handleChange} className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/chat.png" alt="Languages" />
                 <label>Languages: <input type="text" name="languages" value={job.languages} onChange={handleChange} className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/education.png" alt="Degree" />
                 <label><input type="text" name="degree" value={job.degree} onChange={handleChange}  placeholder="Education..." className="job-detail-item-input"/></label>
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/globe.png" alt="Relocation" className="job-detail-item-input"/>
                 <label>Relocation: 
                     <select name="relocation" value={job.relocation} onChange={handleChange} className="job-detail-item-input">
@@ -51,6 +58,7 @@ export function JobDetailsEdit({ job, handleSave, handleChange }) {
             </div>
 
             <div className="job-detail-item">
+                <input type="checkbox" />
                 <img src="/assets/img/money.png" alt="Salary" />
                 <label>Salary Range:
                     <input type="number" name="salaryRange.min" value={job.salaryRange.min} onChange={handleChange} className="job-detail-item-input-salary"/> -
