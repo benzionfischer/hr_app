@@ -73,6 +73,8 @@ export function Stages({ job }) {
                 .then(reviewers => {
                     const reviewer = reviewers[0]
                     const newStage = stageService.getEmptyStage(job.id)
+                    newStage.id = null
+
                     newStage.reviewers = [reviewer]
             
                     const newStages = [
@@ -91,29 +93,42 @@ export function Stages({ job }) {
     // Save the new stage in DB
     function onSaveStage(stage) {
 
-        let sortedStages = stages.sort((a, b) => {
-            if (a.index === null) return 1;  // Push `null` to the end
-            if (b.index === null) return -1; // Push `null` to the end
-            return a.index - b.index;        // Normal sorting
-        });
+        console.log("on Save id: " + stage.id)
+        let newStage = null
+        if (stage.id == null) {
+            let sortedStages = stages.sort((a, b) => {
+                if (a.index === null) return 1;  // Push `null` to the end
+                if (b.index === null) return -1; // Push `null` to the end
+                return a.index - b.index;        // Normal sorting
+            });
 
-        function lastStage(_stages) {
-            return _stages[_stages.length-1]
-        }
+            function lastStage(_stages) {
+                return _stages[_stages.length-1]
+            }
 
-        let _lastStage = lastStage(sortedStages)
+            let _lastStage = lastStage(sortedStages)
 
-        let newStage = { ...stage }
-        newStage.id = null
+            newStage = { ...stage }
+            newStage.id = null
 
-        newStage.index = _lastStage.index
+            newStage.index = _lastStage.index
 
-        _lastStage.index += 1  
+            _lastStage.index += 1  
 
-        stageService.save(newStage)
+
+            stageService.save(newStage)
             .then(_stage => {
                 stageService.save(_lastStage).then(() => loadStages())
             })
+
+        } else {
+            newStage = {...stage}
+            stageService.save(newStage)
+            .then(() => {
+                loadStages()
+            })
+        }
+
         
         setIsViewMode(true)
     }
@@ -122,6 +137,8 @@ export function Stages({ job }) {
     function onClickEdit(stage) {
         setIsViewMode(false)
     }
+
+    // console.log("selected stage: " + selectedStage != null ? null: selectedStage.id )
 
     return (
         <article className="stages">
