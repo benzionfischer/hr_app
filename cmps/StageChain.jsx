@@ -1,6 +1,6 @@
 const { useEffect, useState } = React;
 
-export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage, onAddStage, onSaveStage, onClickEdit }) {
+export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage, onAddStage, onClickEdit }) {
 
     const renderCircleContent = (index) => {
         if (index === 0) {
@@ -16,7 +16,7 @@ export function StageChain({ stages, selectedStage, onSelectStage, onRemoveStage
         return <div>Loading stages...</div>;
     }
 
-    if (!selectedStage || typeof selectedStage !== "object" || !selectedStage.id) {
+    if (!selectedStage || typeof selectedStage !== "object") {
         return <div>No selected stage</div>;
     }
 

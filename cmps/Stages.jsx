@@ -82,8 +82,9 @@ export function Stages({ job }) {
                         newStage,                           // Insert the new element
                         stages[stages.length - 1]             // Add the last element back
                     ];
-            
+
                     setStages(newStages)
+
                     setSelectedStage(newStage)
                     setIsViewMode(false)
                     return newStage
