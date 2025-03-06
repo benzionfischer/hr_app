@@ -9,7 +9,7 @@ export function JobDetailsView({ job }) {
         <section className="job-details-view">
 
             <div className="job-detail-description">
-                <img src="./assets/img/phone.png" alt="title" />
+                <img src="/assets/img/phone.png" alt="title" />
                 <h1>{job.title}</h1>
             </div>
 
