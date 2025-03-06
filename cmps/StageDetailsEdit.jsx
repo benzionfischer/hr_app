@@ -5,20 +5,23 @@ import { UserProfile } from "./UserProfile.jsx"
 export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
     const [stageName, setStageName] = useState(stage.name || "");
     const [description, setDescription] = useState(stage.description || "");
-    const [selectedReviewer, setSelectedReviewer] = useState("");
+    const [selectedReviewer, setSelectedReviewer] = useState(null);
 
     const handleSave = () => {
         const newStage = {
             ...stage,
             name: stageName,
             description,
-            reviewer: selectedReviewer
+            reviewers: [selectedReviewer]
         };
         onSave(newStage); // Callback to save stage
     };
 
+    function getReviewerByName(name) {
+        return reviewers.find(reviewer => reviewer.name === name)
+    }
 
-    console.log("StageDetailsEdit: " + stage.index)
+
     return (
         <div className="stage-details">
             <div className="stage-details-txt">{stage.name ? `Edit: ${stage.name}` : "Create New Stage"}</div>
@@ -48,7 +51,7 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
 
             <label>
                 Reviewer:
-                <select value={selectedReviewer} onChange={(e) => setSelectedReviewer(e.target.value)} className="stage-select">
+                <select value={selectedReviewer !=  null ? selectedReviewer.name : "Stage name..."} onChange={(e) => setSelectedReviewer(getReviewerByName(e.target.value))} className="stage-select">
                     <option value="">Select Reviewer</option>
                     {reviewers.map((reviewer) => (
                         <option key={reviewer.id} value={reviewer.name}>

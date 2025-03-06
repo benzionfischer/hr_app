@@ -135,7 +135,7 @@ export function Stages({ job }) {
                                 onSaveStage={onSaveStage}/> 
                 </div>
                 { isViewMode && <StageDetailsView stage={selectedStage} />}
-                { !isViewMode && <StageDetailsEdit stage={selectedStage} onSave={onSaveStage}/>}
+                { !isViewMode && <StageDetailsEdit stage={selectedStage} onSave={onSaveStage} reviewers={reviewers} />}
 
             </div>
         </article>
