@@ -67,7 +67,6 @@ export function Stages({ job }) {
 
     // Add stage to the state list (not actually to DB)
     function onAddStage() {
-        console.log("onAddStage ..")
 
         reviewerService.query()
                 .then(reviewers => {

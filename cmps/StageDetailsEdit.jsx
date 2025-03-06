@@ -9,16 +9,12 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
 
     const handleSave = () => {
 
-        console.log("StageId: " + stage.id)
         const newStage = {
             ...stage,
             name: stageName,
             description,
             reviewers: [selectedReviewer]
         };
-
-        console.log("NewStageId: " + newStage.id)
-
 
         onSave(newStage); // Callback to save stage
     };
