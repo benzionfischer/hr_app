@@ -2,6 +2,8 @@
 import { JobDetailsView } from "./JobDetailsView.jsx";
 import { JobDetailsEdit } from "../pages/JobDetailsEdit.jsx";
 import { jobService } from "../services/job.service.js";
+import { stageService } from "../services/stage.service.js";
+
 
 const { Link, useNavigate } = ReactRouterDOM;
 const { useEffect, useState } = React;
@@ -15,8 +17,33 @@ export function JobDetails({ job, modeEx}) {
 
     function handleSave(event) {
         event.preventDefault();
+
         jobService.save(editedJob)
             .then(persistedJob => {
+
+                let stage1 = {
+                    // id: makeId(),
+                    index: 0,
+                    jobId: persistedJob.id,
+                    name: "Phone call",
+                    type: "CALL",
+                    description: "The first SE interview assesses technical skills, problem-solving, and cultural fit, often with coding challenges and past project discussions.",
+                    reviewers: [] // Assign 2 random reviewers
+                };
+
+                let stage2 = {
+                    // id: makeId(),
+                    index: 1, // Increment index for last stage
+                    jobId: persistedJob.id,
+                    name: "Contract",
+                    type: "CONTRACT",
+                    description: "The contract interview reviews terms, expectations, and final hiring details before an offer is signed.",
+                    reviewers: [] // Assign 2 random reviewers
+                };
+
+                stageService.save(stage1).then(p =>                 stageService.save(stage2))
+            
+
                 setEditedJob(persistedJob)
                 setMode("view")
                 navigate(`/job/${persistedJob.id}/details`)
