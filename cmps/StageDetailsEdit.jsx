@@ -61,7 +61,9 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
                 />
             </label>
             <br/>
-            <button onClick={handleSave} className="save-button">Save Stage</button>
+            <div >
+                 <button onClick={handleSave} className="save-button">Save Stage</button>
+            </div>        
         </div>
     );
 }
