@@ -33,7 +33,7 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
                     className="stage-input"
                 />
             </label>
-
+            <br/>
             <label>
                 Stage Description:
                 <input
@@ -44,6 +44,7 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
                     className="stage-input"
                 />
             </label>
+            <br/>
 
             <label>
                 Reviewer:
@@ -57,6 +58,7 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
                 </select>
             </label>
 
+            <br/>
             <button onClick={handleSave} className="save-button">Save Stage</button>
         </div>
     );
