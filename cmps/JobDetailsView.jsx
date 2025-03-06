@@ -9,7 +9,7 @@ export function JobDetailsView({ job }) {
         <section className="job-details-view">
 
             <div className="job-detail-description">
-                <img src={`/suitcase.png`} alt="title" />
+                <img src={`/public/suitcase.png`} alt="title" />
                 <h1>{job.title}</h1>
             </div>
 
@@ -21,7 +21,7 @@ export function JobDetailsView({ job }) {
 
             <div className="job-detail-item">
                 <input type="checkbox" />
-                <img src="/assets/img/light.png" alt="Skills" />
+                <img src="assets/img/light.png" alt="Skills" />
                 <span>{job.skills}</span>
             </div>
 
