@@ -24,32 +24,7 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
 
     return (
         <div className="stage-details">
-            <div className="stage-details-txt">{stage.name ? `Edit: ${stage.name}` : "Create New Stage"}</div>
-
-            <label>
-                Stage Name:
-                <input
-                    type="text"
-                    value={stageName}
-                    onChange={(e) => setStageName(e.target.value)}
-                    placeholder="Enter stage name"
-                    className="stage-input"
-                />
-            </label>
-            <br/>
-            <label>
-                Stage Description:
-                <input
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Enter description"
-                    className="stage-input"
-                />
-            </label>
-            <br/>
-
-            <label>
+            <label className="stage-details-txt">
                 Reviewer:
                 <select value={selectedReviewer !=  null ? selectedReviewer.name : "Stage name..."} onChange={(e) => setSelectedReviewer(getReviewerByName(e.target.value))} className="stage-select">
                     <option value="">Select Reviewer</option>
@@ -60,7 +35,31 @@ export function StageDetailsEdit({ stage = {}, reviewers = [], onSave }) {
                     ))}
                 </select>
             </label>
+            <br/>
+            <div className="divider"></div>
 
+            <label className="stage-details-txt">
+                Stage Name:
+                <input
+                    type="text"
+                    value={stageName}
+                    onChange={(e) => setStageName(e.target.value)}
+                    placeholder="Enter stage name"
+                    className="stage-input"
+                />
+            </label>
+            <br/>
+
+            <label className="stage-details-txt">
+                Stage Description:
+                <input
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Enter description"
+                    className="stage-input"
+                />
+            </label>
             <br/>
             <button onClick={handleSave} className="save-button">Save Stage</button>
         </div>
